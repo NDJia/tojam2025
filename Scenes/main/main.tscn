@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://751j1s17snap"]
+
+[node name="Main" type="Node"]
+
+[node name="GameSVContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameSubViewport" type="SubViewport" parent="GameSVContainer"]
