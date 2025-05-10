@@ -6,11 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="4_me5wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovolq"]
-size = Vector2(19, 24.07)
+size = Vector2(7, 6.035)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jos6x"]
-radius = 4.0
-height = 24.0
+radius = 9.0
+height = 32.0
 
 [sub_resource type="Animation" id="Animation_ovolq"]
 resource_name = "Dash"
@@ -120,7 +120,7 @@ y_sort_enabled = true
 script = ExtResource("1_c5wjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -25.965)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ovolq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
@@ -129,6 +129,7 @@ z_index = -1
 texture_filter = 1
 position = Vector2(2, -7)
 texture = ExtResource("3_jos6x")
+metadata/_edit_lock_ = true
 
 [node name="RyanProgressBar" type="ProgressBar" parent="."]
 offset_left = 13.0
@@ -160,7 +161,7 @@ texture = ExtResource("3_me5wt")
 offset = Vector2(0, 2.58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 15)
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_jos6x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -170,7 +171,7 @@ position_smoothing_enabled = true
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_me5wt")
-volume_db = -35.0
+volume_db = -40.0
 bus = &"SFX"
 
 [node name="Die" type="AudioStreamPlayer2D" parent="."]
