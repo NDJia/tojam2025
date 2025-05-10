@@ -125,6 +125,34 @@ _data = {
 &"RESET": SubResource("Animation_jos6x")
 }
 
+[sub_resource type="Animation" id="Animation_q2g35"]
+resource_name = "Left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/AttackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_rvihw"]
 length = 0.001
 tracks/0/type = "value"
@@ -180,34 +208,6 @@ tracks/1/keys = {
 "values": [0.0, 3.14159]
 }
 
-[sub_resource type="Animation" id="Animation_q2g35"]
-resource_name = "Left"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/AttackBox:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/AttackBox:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [3.14159, 0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqgeh"]
 _data = {
 &"Left": SubResource("Animation_q2g35"),
@@ -229,7 +229,6 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/AttackBox"]
 position = Vector2(14.7312, 9.53674e-07)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_me5wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/AttackBox"]
