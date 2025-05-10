@@ -31,7 +31,7 @@ var health = 40
 func _ready() -> void:
 	$ProgressBar.max_value = health
 	$ProgressBar.value = health
-	speed += randi_range(-20,20)
+	speed += randi_range(-10,10)
 	$SmokeAnim.play("smoke")
 
 func _physics_process(delta: float) -> void:

@@ -27,28 +27,30 @@ var state = "Alive"
 var active_items = []
 ## A List Of Currently Active Items
 
+@export var max_items = 5
+
 @export_category("Movement Settings")
 
-@export var max_speed = 80
+@export var def_max = 80
 ## How Many Pixels Per Second The Player Can Move
 
 var curr_max
 ## Current Max Speed of the player after all the buffs/debuffs
 
-@export var acceleration = 20
+@export var def_acc = 20
 ## How Fast The Player Can Accelarate
 
-@export var dash_power = 100
+@export var def_dash_power = 100
 ## The Power of The Dash
 
-@export var dash_cooldown = 1
+@export var def_dash_cooldown = 1
 ## The Cooldown of The Dash In Seconds
 
-var cooldown = dash_cooldown
+var cooldown = def_dash_cooldown
 ## In-Game Cooldown That Changes
 
 func _ready():
-	$RyanProgressBar.max_value = dash_cooldown
+	$RyanProgressBar.max_value = def_dash_cooldown
 	$AnimationPlayer.play("Idle")
 
 func _physics_process(delta: float) -> void:
@@ -60,15 +62,15 @@ func _physics_process(delta: float) -> void:
 	if immune < 0:
 		immune = 0
 
-	$RyanProgressBar.value = dash_cooldown - cooldown
+	$RyanProgressBar.value = def_dash_cooldown - cooldown
 	$RyanHealthBar.value = health
 		
 	# Sets the velocity based on the "WASD" inputs from the player.
 	if state != "Dead":
-		velocity += Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized() * acceleration * int(grounded)
+		velocity += Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized() * def_acc * int(grounded)
 	# Limits the max speed of the player to the determined speed
 	
-	curr_max = max_speed - int(is_attacking)*50
+	curr_max = def_max - int(is_attacking)*50
 	if velocity.length() > curr_max:
 		if grounded:
 			velocity -= (velocity - velocity.normalized()*curr_max)/2
@@ -89,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	if state != "Dead":	
 		if Input.is_action_just_pressed("Dash") and cooldown == 0:
 			jump()
-			cooldown = dash_cooldown
+			cooldown = def_dash_cooldown
  
 	if $Hitbox.has_overlapping_areas() and immune == 0 and grounded:
 		var enemy = $Hitbox.get_overlapping_areas()[0].get_parent()
@@ -147,7 +149,7 @@ func die():
 func jump():
 	# Starts The Jumping Animation
 	$AnimationPlayer.play("Dash")
-	velocity += dash_power * Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized()
+	velocity += def_dash_power * Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized()
 	await($AnimationPlayer.animation_finished)
 	$AnimationPlayer.play("Idle")
 
