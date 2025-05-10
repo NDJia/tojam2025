@@ -9,8 +9,14 @@ var health = 100.0
 var immune = 1
 ## when this value is above 0 the player is immune to hits, the value goes down by time
 
+var damage = 5
+## How much damage the player deals
+
 var is_attacking = false
 ## Variable that tracks if player is attacking
+
+var attack_cooldown = 0.2
+## Seconds the player has to wait before hitting again
 
 @export var grounded = true
 ## Determines if the player is in the air or not
@@ -25,6 +31,9 @@ var active_items = []
 
 @export var max_speed = 80
 ## How Many Pixels Per Second The Player Can Move
+
+var curr_max
+## Current Max Speed of the player after all the buffs/debuffs
 
 @export var acceleration = 20
 ## How Fast The Player Can Accelarate
@@ -57,13 +66,14 @@ func _physics_process(delta: float) -> void:
 	# Sets the velocity based on the "WASD" inputs from the player.
 	if state != "Dead":
 		velocity += Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized() * acceleration * int(grounded)
-	
 	# Limits the max speed of the player to the determined speed
-	if velocity.length() > max_speed:
+	
+	curr_max = max_speed - int(is_attacking)*50
+	if velocity.length() > curr_max:
 		if grounded:
-			velocity -= (velocity - velocity.normalized()*max_speed)/2
+			velocity -= (velocity - velocity.normalized()*curr_max)/2
 		else:
-			velocity -= (velocity - velocity.normalized()*max_speed)/100
+			velocity -= (velocity - velocity.normalized()*curr_max)/100
 	
 	# If no buttons are held the plater slows down
 	if Input.get_axis("Left","Right") == 0 and Input.get_axis("Up","Down") == 0 and grounded:
@@ -88,7 +98,11 @@ func _physics_process(delta: float) -> void:
 		immune = 0.3
 		if state != "Dead":
 			hit()
-		
+			
+	if $Weapon/AttackBox.monitoring:
+		for enemy in $Weapon/AttackBox.get_overlapping_areas():
+			enemy.get_parent().hit(damage)
+			
 	move_and_slide()
 
 	if health <= 0 and state != "Dead":
@@ -102,25 +116,17 @@ func _physics_process(delta: float) -> void:
 	elif a <= -3*PI / 4:
 		$Hitbox/Body.texture = side
 		$Hitbox/Body.flip_h = true
-	elif a <= -PI / 4:
-		$Hitbox/Body.texture = back
-		$Hitbox/Body.flip_h = false
 	elif a <= PI / 4:
 		$Hitbox/Body.texture = side
-		$Hitbox/Body.flip_h = false
-	elif a <= 3*PI / 4:
-		$Hitbox/Body.texture = front
 		$Hitbox/Body.flip_h = false
 	else:
 		$Hitbox/Body.texture = side
 		$Hitbox/Body.flip_h = true
 		
 	#Checks if the player is attacking
-	if Input.is_action_just_pressed("Attack"):
+	if Input.is_action_just_pressed("Attack") and not is_attacking and state != "Dead":
 		is_attacking = true
 		$AttackAnimator.play("Right")
-	if Input.is_action_just_released("Attack"):
-		is_attacking = false
 
 func hit():
 	$Hitbox/Body.modulate = Color("ff0000")
@@ -146,10 +152,12 @@ func jump():
 	$AnimationPlayer.play("Idle")
 
 func AttackFinish(anim_name: StringName) -> void:
+	$AttackAnimator.play("RESET")
+	await(get_tree().create_timer(attack_cooldown,false).timeout)
 	$Weapon.look_at(get_global_mouse_position())
-	if anim_name == "Right" and is_attacking:
+	if not Input.is_action_pressed("Attack") or state == "Dead":
+		is_attacking = false
+	elif anim_name == "Right" and Input.is_action_pressed("Attack"):
 		$AttackAnimator.play("Left")
-	elif anim_name == "Left" and is_attacking:
+	elif anim_name == "Left" and Input.is_action_pressed("Attack"):
 		$AttackAnimator.play("Right")
-	else:
-		$AttackAnimator.play("RESET")

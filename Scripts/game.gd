@@ -6,7 +6,7 @@ extends Node2D
 @export var tile_size = 24
 ## How many tiles do each tile consists of (24x24)
 
-@export var var_num = 3
+@export var var_num = 5
 ## Amount of island variation in the game
 
 func _ready() -> void:

@@ -1,20 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://lijg8xjgo2gs"]
+[gd_scene load_steps=28 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
 [ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="2_me5wt"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="3_jos6x"]
 [ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="4_me5wt"]
+[ext_resource type="Texture2D" uid="uid://dcsuo2j2ec7yu" path="res://Assets/Textures/Hitting/hitting1.png" id="5_0rhpg"]
+[ext_resource type="Texture2D" uid="uid://d24jlw0x41vwb" path="res://Assets/Textures/Hitting/hitting2.png" id="6_lj8dp"]
+[ext_resource type="Texture2D" uid="uid://cq36ydu4nsa0y" path="res://Assets/Textures/Hitting/hitting3.png" id="7_psa5u"]
+[ext_resource type="Texture2D" uid="uid://yrqrj68fycg3" path="res://Assets/Textures/Hitting/hitting4.png" id="8_vyu76"]
+[ext_resource type="Texture2D" uid="uid://duubyanggv7tp" path="res://Assets/Textures/Hitting/hitting5.png" id="9_uqkug"]
+[ext_resource type="Texture2D" uid="uid://r7mupx5b051h" path="res://Assets/Textures/Hitting/hitting6.png" id="10_gn121"]
+[ext_resource type="Texture2D" uid="uid://fwr5bm7vm4co" path="res://Assets/Textures/Hitting/hitting7.png" id="11_g14uv"]
+[ext_resource type="Texture2D" uid="uid://n0j4mwh8k7ae" path="res://Assets/Textures/Hitting/hitting8.png" id="12_1gnnm"]
+[ext_resource type="Texture2D" uid="uid://db1xkgik5w81j" path="res://Assets/Textures/Hitting/hitting9.png" id="13_q2orv"]
+[ext_resource type="Texture2D" uid="uid://yexe686ppnvv" path="res://Assets/Textures/Hitting/hitting10.png" id="14_av8dc"]
+[ext_resource type="Texture2D" uid="uid://hyw5ih05n5tb" path="res://Assets/Textures/Hitting/hitting11.png" id="15_q1qxs"]
+[ext_resource type="Texture2D" uid="uid://tnntqnl5hdl6" path="res://Assets/Textures/Hitting/hitting12.png" id="16_ypua6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me5wt"]
 size = Vector2(31.4624, 4)
-
-[sub_resource type="Gradient" id="Gradient_q2g35"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ntsr"]
-gradient = SubResource("Gradient_q2g35")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(1, 0.982906)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovolq"]
 size = Vector2(7, 6.035)
@@ -127,30 +131,66 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_q2g35"]
 resource_name = "Left"
-length = 0.2
+length = 0.22
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/AttackBox:visible")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Weapon/AttackBox:rotation")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22),
+"transitions": PackedFloat32Array(0.307786, 1),
+"update": 0,
+"values": [1.5708, -1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/AttackBox:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/Slash:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0001, 0.02, 0.0397183, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_0rhpg"), ExtResource("6_lj8dp"), ExtResource("7_psa5u"), ExtResource("8_vyu76"), ExtResource("9_uqkug"), ExtResource("10_gn121"), ExtResource("11_g14uv"), ExtResource("12_1gnnm"), ExtResource("13_q2orv"), ExtResource("14_av8dc"), ExtResource("15_q1qxs"), ExtResource("16_ypua6")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon/Slash:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Weapon/Slash:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.14159, 0.0]
+"values": [-2.0636]
 }
 
 [sub_resource type="Animation" id="Animation_rvihw"]
@@ -158,54 +198,126 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/AttackBox:visible")
+tracks/0/path = NodePath("Weapon/AttackBox:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/AttackBox:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
-
-[sub_resource type="Animation" id="Animation_cotkh"]
-resource_name = "Right"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/AttackBox:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/Slash:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon/Slash:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Weapon/Slash:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0636]
+}
+
+[sub_resource type="Animation" id="Animation_cotkh"]
+resource_name = "Right"
+length = 0.22
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/AttackBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, 1.5708]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/AttackBox:rotation")
+tracks/1/path = NodePath("Weapon/AttackBox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/Slash:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0001, 0.02, 0.0397183, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_0rhpg"), ExtResource("6_lj8dp"), ExtResource("7_psa5u"), ExtResource("8_vyu76"), ExtResource("9_uqkug"), ExtResource("10_gn121"), ExtResource("11_g14uv"), ExtResource("12_1gnnm"), ExtResource("13_q2orv"), ExtResource("14_av8dc"), ExtResource("15_q1qxs"), ExtResource("16_ypua6")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon/Slash:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Weapon/Slash:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 3.14159]
+"values": [-0.945968]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqgeh"]
@@ -222,19 +334,22 @@ script = ExtResource("1_c5wjw")
 
 [node name="Weapon" type="Node2D" parent="."]
 position = Vector2(0, -16)
-rotation = -2.72981
+
+[node name="Slash" type="Sprite2D" parent="Weapon"]
+texture_filter = 1
+position = Vector2(9, -1)
+rotation = -2.0636
+scale = Vector2(1.475, 1.475)
+flip_h = true
 
 [node name="AttackBox" type="Area2D" parent="Weapon"]
-visible = false
+collision_layer = 4
+collision_mask = 4
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/AttackBox"]
 position = Vector2(14.7312, 9.53674e-07)
 shape = SubResource("RectangleShape2D_me5wt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Weapon/AttackBox"]
-position = Vector2(13.7174, 0)
-scale = Vector2(0.459917, 0.0625)
-texture = SubResource("GradientTexture2D_0ntsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -306,5 +421,6 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_sqgeh")
 }
+speed_scale = 0.8
 
 [connection signal="animation_finished" from="AttackAnimator" to="." method="AttackFinish"]

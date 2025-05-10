@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://yc6d0anpe5kp"]
+[gd_scene load_steps=10 format=3 uid="uid://yc6d0anpe5kp"]
 
 [ext_resource type="Script" uid="uid://dvi48do70xkkb" path="res://Scripts/basic_enemy.gd" id="1_fecjr"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="2_6kac6"]
 [ext_resource type="Texture2D" uid="uid://do3yuqeaqcth7" path="res://Assets/Textures/Cows/Water/WaterCowSide.png" id="2_r4aor"]
 [ext_resource type="Texture2D" uid="uid://bdylr3oc8r502" path="res://Assets/Textures/Cows/smoke.png" id="3_lal1l"]
+[ext_resource type="AudioStream" uid="uid://bnc32itvh4uia" path="res://Assets/Sounds/MOO.mp3" id="5_6kac6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4aor"]
 radius = 9.0
@@ -63,8 +64,8 @@ position = Vector2(0, -16)
 texture = ExtResource("2_r4aor")
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, -14)
@@ -94,5 +95,18 @@ texture = ExtResource("3_lal1l")
 libraries = {
 &"": SubResource("AnimationLibrary_6cefa")
 }
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 27.0
+offset_bottom = -39.0
+show_percentage = false
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6kac6")
+volume_db = -10.0
+pitch_scale = 0.72
+bus = &"SFX"
 
 [connection signal="timeout" from="UpdateTarget" to="." method="Update_Target"]
