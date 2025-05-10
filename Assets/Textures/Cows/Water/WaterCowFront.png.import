@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c275wm3p0vkto"
-path="res://.godot/imported/RyanCow.png-de38ebe8007cd5d3c5ff683c340bab29.ctex"
+uid="uid://7i0txfff7060"
+path="res://.godot/imported/WaterCowFront.png-dade16c5fe5454d7942aed7010ccc08c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/RyanCow.png"
-dest_files=["res://.godot/imported/RyanCow.png-de38ebe8007cd5d3c5ff683c340bab29.ctex"]
+source_file="res://Assets/Textures/Cows/Water/WaterCowFront.png"
+dest_files=["res://.godot/imported/WaterCowFront.png-dade16c5fe5454d7942aed7010ccc08c.ctex"]
 
 [params]
 

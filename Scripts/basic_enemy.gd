@@ -1,9 +1,19 @@
 extends Node2D
+var side = preload("res://Assets/Textures/Cows/Water/WaterCowSide.png")
+var front = preload("res://Assets/Textures/Cows/Water/WaterCowFront.png")
+var back = preload("res://Assets/Textures/Cows/Water/WaterCowBack.png")
+
 
 @onready var player = get_node('../Player')
 ## A Refrence To The Player
 
-var speed = 50
+var damage = 10
+## How much damage is dealt to the player on collision
+
+var knockback = 1000
+## How much knockback is dealt to the player on collsision
+
+var speed = 100
 ## Speed Of The Enemy
 
 var condition = "Idle"
@@ -12,8 +22,42 @@ var condition = "Idle"
 var range = 150
 ## Range Where The Enemy Detects The Player
 
+func _ready() -> void:
+	$SmokeAnim.play("smoke")
+
 func _physics_process(delta: float) -> void:
-	position += ($Nav.get_next_path_position() - position).normalized() * delta * speed
+	var dir = ($Nav.get_next_path_position() - position).normalized()
+	position += dir * speed * delta
+	
+	dir = dir.angle()
+	if dir <= -3*PI / 4:
+		$Body.texture = side
+		$Body.flip_h = true
+		$Body.position.x = -13
+		$SmokeTexture.position.x = -30
+		$SmokeTexture.visible = true
+	elif dir <= -PI / 4:
+		$Body.texture = back
+		$Body.flip_h = false
+		$Body.position.x = 0
+		$SmokeTexture.visible = false
+	elif dir <= PI / 4:
+		$Body.texture = side
+		$Body.flip_h = false
+		$Body.position.x = 0
+		$SmokeTexture.position.x = 30
+		$SmokeTexture.visible = false
+	elif dir <= 3*PI / 4:
+		$Body.texture = front
+		$Body.flip_h = false
+		$Body.position.x = 0
+		$SmokeTexture.visible = false
+	else:
+		$Body.texture = side
+		$Body.flip_h = true
+		$Body.position.x = -13
+		$SmokeTexture.position.x = -30
+		$SmokeTexture.visible = true
 
 func Update_Target() -> void:
 	if position.distance_to(player.position) < range:
