@@ -26,7 +26,7 @@ var state = "Alive"
 @export var dash_power = 160
 ## The Power of The Dash
 
-@export var dash_cooldown = 5
+@export var dash_cooldown = 1
 ## The Cooldown of The Dash In Seconds
 
 var cooldown = dash_cooldown
