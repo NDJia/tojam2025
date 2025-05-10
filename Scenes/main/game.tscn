@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://m3w3wy2ctq27"]
+[gd_scene load_steps=7 format=3 uid="uid://m3w3wy2ctq27"]
 
 [ext_resource type="PackedScene" uid="uid://lijg8xjgo2gs" path="res://Scenes/main/player.tscn" id="1_80i0f"]
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_duhwf"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_y2epo"]
 [ext_resource type="PackedScene" uid="uid://yc6d0anpe5kp" path="res://Scenes/basic_enemy.tscn" id="3_ywlg3"]
+[ext_resource type="PackedScene" uid="uid://b5wog7x507abq" path="res://Scenes/hud.tscn" id="5_y2epo"]
 
 [sub_resource type="TileSet" id="TileSet_uj3lb"]
 physics_layer_0/collision_layer = 1
@@ -27,3 +28,5 @@ y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_uj3lb")
 metadata/_edit_lock_ = true
+
+[node name="HUD" parent="." instance=ExtResource("5_y2epo")]
