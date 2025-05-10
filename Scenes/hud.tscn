@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ltp0sqiajh4w"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 112.0
+offset_bottom = 50.0
+text = "HELLO WORLD
+hello world"
