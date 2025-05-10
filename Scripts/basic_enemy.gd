@@ -33,29 +33,24 @@ func _physics_process(delta: float) -> void:
 	if dir <= -3*PI / 4:
 		$Body.texture = side
 		$Body.flip_h = true
-		$Body.position.x = -13
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 	elif dir <= -PI / 4:
 		$Body.texture = back
 		$Body.flip_h = false
-		$Body.position.x = 0
 		$SmokeTexture.visible = false
 	elif dir <= PI / 4:
 		$Body.texture = side
 		$Body.flip_h = false
-		$Body.position.x = 0
 		$SmokeTexture.position.x = 30
-		$SmokeTexture.visible = false
+		$SmokeTexture.visible = true
 	elif dir <= 3*PI / 4:
 		$Body.texture = front
 		$Body.flip_h = false
-		$Body.position.x = 0
 		$SmokeTexture.visible = false
 	else:
 		$Body.texture = side
 		$Body.flip_h = true
-		$Body.position.x = -13
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 

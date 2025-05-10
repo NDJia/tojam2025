@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx1wku5irkkmn"
-path="res://.godot/imported/goat_on_pogo_big.png-ee4c9a20635bf1e88afc181a06b43591.ctex"
+uid="uid://y8lfaxoos7qb"
+path="res://.godot/imported/Log.png-e0820e72c3931a7acf061acc54617c2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportedTextures/goat_on_pogo_big.png"
-dest_files=["res://.godot/imported/goat_on_pogo_big.png-ee4c9a20635bf1e88afc181a06b43591.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Animations/Log.png"
+dest_files=["res://.godot/imported/Log.png-e0820e72c3931a7acf061acc54617c2a.ctex"]
 
 [params]
 
