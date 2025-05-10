@@ -17,13 +17,13 @@ var state = "Alive"
 
 @export_category("Movement Settings")
 
-@export var max_speed = 150
+@export var max_speed = 80
 ## How Many Pixels Per Second The Player Can Move
 
 @export var acceleration = 20
 ## How Fast The Player Can Accelarate
 
-@export var dash_power = 160
+@export var dash_power = 100
 ## The Power of The Dash
 
 @export var dash_cooldown = 1
@@ -128,6 +128,6 @@ func die():
 func jump():
 	# Starts The Jumping Animation
 	$AnimationPlayer.play("Dash")
-	velocity += dash_power * velocity.normalized()
+	velocity += dash_power * Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized()
 	await($AnimationPlayer.animation_finished)
 	$AnimationPlayer.play("Idle")
