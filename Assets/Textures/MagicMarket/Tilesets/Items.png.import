@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dioxf880d3jra"
-path="res://.godot/imported/TX Tileset Grass.png-60bd85479ff64ddb23444db85cbe5e14.ctex"
+uid="uid://b3av03yfx3j5s"
+path="res://.godot/imported/Items.png-6438e54f0203c02ea094f02920fba0bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Temp/TX Tileset Grass.png"
-dest_files=["res://.godot/imported/TX Tileset Grass.png-60bd85479ff64ddb23444db85cbe5e14.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Items.png"
+dest_files=["res://.godot/imported/Items.png-6438e54f0203c02ea094f02920fba0bc.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
-var front = preload("res://ImportedTextures/goat_on_pogo_big.png")
-var back = preload("res://ImportedTextures/goat_on_pogo_big.png")
-var side = preload("res://ImportedTextures/goat_on_pogo_big.png")
+var front = preload("res://Assets/Textures/goat_on_pogo.png")
+var back = preload("res://Assets/Textures/goat_on_pogo.png")
+var side = preload("res://Assets/Textures/goat_on_pogo.png")
 
 var health = 100.0
 ## The Health Variable Of The Player

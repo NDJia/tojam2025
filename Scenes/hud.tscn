@@ -1,9 +1,53 @@
-[gd_scene format=3 uid="uid://ltp0sqiajh4w"]
+[gd_scene load_steps=2 format=3 uid="uid://b5wog7x507abq"]
+
+[ext_resource type="Script" uid="uid://5u80v8ppeimo" path="res://Scripts/hud.gd" id="1_e0onf"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_e0onf")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 112.0
-offset_bottom = 50.0
-text = "HELLO WORLD
-hello world"
+[node name="Health" type="Label" parent="."]
+offset_left = 86.0
+offset_right = 285.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 64
+text = "100"
+autowrap_mode = 2
+
+[node name="HPInfo" type="Label" parent="."]
+offset_left = 12.0
+offset_right = 84.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 64
+text = "HP:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -48.0
+offset_right = 149.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2

@@ -1,16 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
+[ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="2_me5wt"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="3_jos6x"]
-[ext_resource type="Texture2D" uid="uid://cx1wku5irkkmn" path="res://ImportedTextures/goat_on_pogo_big.png" id="3_me5wt"]
 [ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="4_me5wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovolq"]
 size = Vector2(7, 6.035)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jos6x"]
-radius = 9.0
-height = 32.0
+radius = 4.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_ovolq"]
 resource_name = "Dash"
@@ -45,10 +45,10 @@ tracks/2/path = NodePath(".:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.233333, 0.8),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 0]
+"values": [2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_me5wt"]
@@ -120,35 +120,11 @@ y_sort_enabled = true
 script = ExtResource("1_c5wjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(-1, -4)
 shape = SubResource("RectangleShape2D_ovolq")
 
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.505882)
-z_index = -1
-texture_filter = 1
-position = Vector2(2, -7)
-texture = ExtResource("3_jos6x")
-metadata/_edit_lock_ = true
-
-[node name="RyanProgressBar" type="ProgressBar" parent="."]
-offset_left = 13.0
-offset_top = -38.0
-offset_right = 20.0
-offset_bottom = 7.0
-max_value = 10.0
-fill_mode = 3
-show_percentage = false
-
-[node name="RyanHealthBar" type="ProgressBar" parent="."]
-offset_left = -25.0
-offset_top = -52.0
-offset_right = 25.0
-offset_bottom = -44.0
-show_percentage = false
-
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(0, -21)
+position = Vector2(0, -18)
 collision_layer = 2
 collision_mask = 2
 
@@ -156,13 +132,37 @@ collision_mask = 2
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-1, -5.36442e-07)
-scale = Vector2(0.0883333, 0.0883333)
-texture = ExtResource("3_me5wt")
+texture = ExtResource("2_me5wt")
 offset = Vector2(0, 2.58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, 0)
+position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_jos6x")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+z_index = -1
+texture_filter = 1
+position = Vector2(1, -7)
+scale = Vector2(0.328704, 0.678571)
+texture = ExtResource("3_jos6x")
+metadata/_edit_lock_ = true
+
+[node name="RyanProgressBar" type="ProgressBar" parent="."]
+offset_left = 10.0
+offset_top = -27.0
+offset_right = 15.0
+offset_bottom = 1.0
+max_value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[node name="RyanHealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -35.0
+offset_right = 12.0
+offset_bottom = -30.0
+show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

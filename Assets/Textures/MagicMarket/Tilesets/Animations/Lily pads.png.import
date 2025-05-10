@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx1wku5irkkmn"
-path="res://.godot/imported/goat_on_pogo_big.png-ee4c9a20635bf1e88afc181a06b43591.ctex"
+uid="uid://d1esh1yof2y0k"
+path="res://.godot/imported/Lily pads.png-1ad2cf88145ee4931ddff2ba5525c19c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportedTextures/goat_on_pogo_big.png"
-dest_files=["res://.godot/imported/goat_on_pogo_big.png-ee4c9a20635bf1e88afc181a06b43591.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Lily pads.png"
+dest_files=["res://.godot/imported/Lily pads.png-1ad2cf88145ee4931ddff2ba5525c19c.ctex"]
 
 [params]
 
