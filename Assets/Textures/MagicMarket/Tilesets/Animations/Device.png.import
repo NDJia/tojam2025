@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhourlo1aqofm"
-path="res://.godot/imported/Lantern.png-603fa1b2b635050c4ca0331b49de7d45.ctex"
+uid="uid://dc4sf74pv7xcd"
+path="res://.godot/imported/Device.png-36686743828c64de9b5a37015385bd26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Lantern.png"
-dest_files=["res://.godot/imported/Lantern.png-603fa1b2b635050c4ca0331b49de7d45.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Device.png"
+dest_files=["res://.godot/imported/Device.png-36686743828c64de9b5a37015385bd26.ctex"]
 
 [params]
 

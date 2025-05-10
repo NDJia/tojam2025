@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3eaartv3a6mn"
-path="res://.godot/imported/Cauldron.png-b209bc9954eb437aa7c24d2a73bda094.ctex"
+path="res://.godot/imported/Cauldron.png-1ad16600113f848e8531d357e78aadd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Cauldron.png"
-dest_files=["res://.godot/imported/Cauldron.png-b209bc9954eb437aa7c24d2a73bda094.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Cauldron.png"
+dest_files=["res://.godot/imported/Cauldron.png-1ad16600113f848e8531d357e78aadd4.ctex"]
 
 [params]
 

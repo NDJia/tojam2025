@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqv4q4du6jvab"
-path="res://.godot/imported/Crystal.png-bee74d74854f439a1d22e7bde59ad452.ctex"
+uid="uid://y8lfaxoos7qb"
+path="res://.godot/imported/Log.png-3d3b42d5e7820ab8eb71548035c2ec4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Crystal.png"
-dest_files=["res://.godot/imported/Crystal.png-bee74d74854f439a1d22e7bde59ad452.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Log.png"
+dest_files=["res://.godot/imported/Log.png-3d3b42d5e7820ab8eb71548035c2ec4c.ctex"]
 
 [params]
 

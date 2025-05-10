@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d7cbhh43bds7"
-path="res://.godot/imported/Tileset_water.png-70febce60a6b6906bea744df8e9d533e.ctex"
+uid="uid://rnfqbxs76ohd"
+path="res://.godot/imported/Plant03.png-f4dc0072b318ab4e8d069915954a38fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Tileset_water.png"
-dest_files=["res://.godot/imported/Tileset_water.png-70febce60a6b6906bea744df8e9d533e.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Plant03.png"
+dest_files=["res://.godot/imported/Plant03.png-f4dc0072b318ab4e8d069915954a38fc.ctex"]
 
 [params]
 

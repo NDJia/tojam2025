@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wjwxl25xnayj"
-path="res://.godot/imported/Plant01.png-cdfee7e4967e2b927d188cb0f5343bd0.ctex"
+uid="uid://465rqc7ur4n5"
+path="res://.godot/imported/Plant02.png-4803ab77c2275c8f5f8fe1ba8c191320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Plant01.png"
-dest_files=["res://.godot/imported/Plant01.png-cdfee7e4967e2b927d188cb0f5343bd0.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Plant02.png"
+dest_files=["res://.godot/imported/Plant02.png-4803ab77c2275c8f5f8fe1ba8c191320.ctex"]
 
 [params]
 

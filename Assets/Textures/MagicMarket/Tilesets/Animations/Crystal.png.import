@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1esh1yof2y0k"
-path="res://.godot/imported/Lily pads.png-7172ebb7eead971ddce875d6b996345b.ctex"
+uid="uid://cqv4q4du6jvab"
+path="res://.godot/imported/Crystal.png-0205e79ed323876c42c9f1771815b061.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Lily pads.png"
-dest_files=["res://.godot/imported/Lily pads.png-7172ebb7eead971ddce875d6b996345b.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Crystal.png"
+dest_files=["res://.godot/imported/Crystal.png-0205e79ed323876c42c9f1771815b061.ctex"]
 
 [params]
 

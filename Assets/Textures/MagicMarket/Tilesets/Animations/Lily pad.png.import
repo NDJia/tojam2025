@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc4sf74pv7xcd"
-path="res://.godot/imported/Device.png-43c2d0101d413d7e600a2404143a7fdf.ctex"
+uid="uid://b2nbbau3vhuis"
+path="res://.godot/imported/Lily pad.png-3f143df0e4b50146c3f5a2858d6262b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Device.png"
-dest_files=["res://.godot/imported/Device.png-43c2d0101d413d7e600a2404143a7fdf.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Lily pad.png"
+dest_files=["res://.godot/imported/Lily pad.png-3f143df0e4b50146c3f5a2858d6262b7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t2jodt66x53c"
-path="res://.godot/imported/Plant04.png-8612a0e8eeeea7f3d3af786602b56caa.ctex"
+uid="uid://qlm2jlcgaq7x"
+path="res://.godot/imported/branches.png-2223a6432602da1f65cac3dfafed09b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Plant04.png"
-dest_files=["res://.godot/imported/Plant04.png-8612a0e8eeeea7f3d3af786602b56caa.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/branches.png"
+dest_files=["res://.godot/imported/branches.png-2223a6432602da1f65cac3dfafed09b2.ctex"]
 
 [params]
 

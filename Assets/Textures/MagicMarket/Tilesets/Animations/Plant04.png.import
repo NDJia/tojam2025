@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2nbbau3vhuis"
-path="res://.godot/imported/Lily pad.png-01d221873b83d2223a3fe0e86c897ff6.ctex"
+uid="uid://t2jodt66x53c"
+path="res://.godot/imported/Plant04.png-83b57d2764fb30fca747265ef923d99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/MagicMarket/Animations/Lily pad.png"
-dest_files=["res://.godot/imported/Lily pad.png-01d221873b83d2223a3fe0e86c897ff6.ctex"]
+source_file="res://Assets/Textures/MagicMarket/Tilesets/Animations/Plant04.png"
+dest_files=["res://.godot/imported/Plant04.png-83b57d2764fb30fca747265ef923d99a.ctex"]
 
 [params]
 
