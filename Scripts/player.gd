@@ -9,11 +9,17 @@ var health = 100.0
 var immune = 1
 ## when this value is above 0 the player is immune to hits, the value goes down by time
 
+var is_attacking = false
+## Variable that tracks if player is attacking
+
 @export var grounded = true
 ## Determines if the player is in the air or not
 
 var state = "Alive"
 ## State of the player
+
+var active_items = []
+## A List Of Currently Active Items
 
 @export_category("Movement Settings")
 
@@ -108,6 +114,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Hitbox/Body.texture = side
 		$Hitbox/Body.flip_h = true
+		
+	#Checks if the player is attacking
+	if Input.is_action_just_pressed("Attack"):
+		is_attacking = true
+		$AttackAnimator.play("Right")
+	if Input.is_action_just_released("Attack"):
+		is_attacking = false
 
 func hit():
 	$Hitbox/Body.modulate = Color("ff0000")
@@ -131,3 +144,12 @@ func jump():
 	velocity += dash_power * Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down")).normalized()
 	await($AnimationPlayer.animation_finished)
 	$AnimationPlayer.play("Idle")
+
+func AttackFinish(anim_name: StringName) -> void:
+	$Weapon.look_at(get_global_mouse_position())
+	if anim_name == "Right" and is_attacking:
+		$AttackAnimator.play("Left")
+	elif anim_name == "Left" and is_attacking:
+		$AttackAnimator.play("Right")
+	else:
+		$AttackAnimator.play("RESET")

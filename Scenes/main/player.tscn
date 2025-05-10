@@ -1,16 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://lijg8xjgo2gs"]
+[gd_scene load_steps=18 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
 [ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="2_me5wt"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="3_jos6x"]
 [ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="4_me5wt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me5wt"]
+size = Vector2(31.4624, 4)
+
+[sub_resource type="Gradient" id="Gradient_q2g35"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ntsr"]
+gradient = SubResource("Gradient_q2g35")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.982906)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovolq"]
 size = Vector2(7, 6.035)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jos6x"]
 radius = 4.0
-height = 20.0
+height = 12.0
 
 [sub_resource type="Animation" id="Animation_ovolq"]
 resource_name = "Dash"
@@ -114,17 +125,124 @@ _data = {
 &"RESET": SubResource("Animation_jos6x")
 }
 
+[sub_resource type="Animation" id="Animation_rvihw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/AttackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cotkh"]
+resource_name = "Right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/AttackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_q2g35"]
+resource_name = "Left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/AttackBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/AttackBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqgeh"]
+_data = {
+&"Left": SubResource("Animation_q2g35"),
+&"RESET": SubResource("Animation_rvihw"),
+&"Right": SubResource("Animation_cotkh")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_c5wjw")
 
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(0, -16)
+rotation = -2.72981
+
+[node name="AttackBox" type="Area2D" parent="Weapon"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/AttackBox"]
+position = Vector2(14.7312, 9.53674e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_me5wt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon/AttackBox"]
+position = Vector2(13.7174, 0)
+scale = Vector2(0.459917, 0.0625)
+texture = SubResource("GradientTexture2D_0ntsr")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -4)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ovolq")
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(0, -18)
+position = Vector2(0, -21)
 collision_layer = 2
 collision_mask = 2
 
@@ -136,7 +254,7 @@ texture = ExtResource("2_me5wt")
 offset = Vector2(0, 2.58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, 4)
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_jos6x")
 
 [node name="Shadow" type="Sprite2D" parent="."]
@@ -184,3 +302,10 @@ bus = &"SFX"
 libraries = {
 &"": SubResource("AnimationLibrary_me5wt")
 }
+
+[node name="AttackAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sqgeh")
+}
+
+[connection signal="animation_finished" from="AttackAnimator" to="." method="AttackFinish"]
