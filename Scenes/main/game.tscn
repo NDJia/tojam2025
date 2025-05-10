@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_duhwf"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_y2epo"]
 [ext_resource type="PackedScene" uid="uid://yc6d0anpe5kp" path="res://Scenes/basic_enemy.tscn" id="3_ywlg3"]
-[ext_resource type="PackedScene" uid="uid://b5wog7x507abq" path="res://Scenes/hud.tscn" id="5_y2epo"]
+[ext_resource type="PackedScene" uid="uid://b5wog7x507abq" path="res://Scenes/UI/hud.tscn" id="5_y2epo"]
 
 [sub_resource type="TileSet" id="TileSet_uj3lb"]
 physics_layer_0/collision_layer = 1
