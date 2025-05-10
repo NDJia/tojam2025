@@ -1,7 +1,7 @@
 extends CharacterBody2D
-var front = preload("res://Temp/CatFront.png")
-var back = preload("res://Temp/CatBack.png")
-var side = preload("res://Temp/CatSide.png")
+var front = preload("res://ImportedTextures/goat_on_pogo_big.png")
+var back = preload("res://ImportedTextures/goat_on_pogo_big.png")
+var side = preload("res://ImportedTextures/goat_on_pogo_big.png")
 
 var health = 100.0
 ## The Health Variable Of The Player
@@ -95,19 +95,19 @@ func _physics_process(delta: float) -> void:
 		pass
 	elif a <= -3*PI / 4:
 		$Hitbox/Body.texture = side
-		$Hitbox/Body.flip_h = false
+		$Hitbox/Body.flip_h = true
 	elif a <= -PI / 4:
 		$Hitbox/Body.texture = back
 		$Hitbox/Body.flip_h = false
 	elif a <= PI / 4:
 		$Hitbox/Body.texture = side
-		$Hitbox/Body.flip_h = true
+		$Hitbox/Body.flip_h = false
 	elif a <= 3*PI / 4:
 		$Hitbox/Body.texture = front
 		$Hitbox/Body.flip_h = false
 	else:
 		$Hitbox/Body.texture = side
-		$Hitbox/Body.flip_h = false
+		$Hitbox/Body.flip_h = true
 
 func hit():
 	$Hitbox/Body.modulate = Color("ff0000")

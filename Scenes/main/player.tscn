@@ -1,15 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
-[ext_resource type="Texture2D" uid="uid://dd6q8y75uki6r" path="res://Temp/CatFront.png" id="2_ovolq"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="3_jos6x"]
+[ext_resource type="Texture2D" uid="uid://cx1wku5irkkmn" path="res://ImportedTextures/goat_on_pogo_big.png" id="3_me5wt"]
 [ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="4_me5wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovolq"]
-size = Vector2(20, 14)
+size = Vector2(19, 24.07)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jos6x"]
-height = 32.0
+radius = 4.0
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_ovolq"]
 resource_name = "Dash"
@@ -119,7 +120,7 @@ y_sort_enabled = true
 script = ExtResource("1_c5wjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-0.5, -25.965)
 shape = SubResource("RectangleShape2D_ovolq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
@@ -153,11 +154,13 @@ collision_mask = 2
 [node name="Body" type="Sprite2D" parent="Hitbox"]
 y_sort_enabled = true
 texture_filter = 1
-texture = ExtResource("2_ovolq")
+position = Vector2(-1, -5.36442e-07)
+scale = Vector2(0.0883333, 0.0883333)
+texture = ExtResource("3_me5wt")
 offset = Vector2(0, 2.58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 9)
+position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_jos6x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
