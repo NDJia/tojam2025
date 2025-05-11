@@ -210,6 +210,19 @@ func jump():
 		get_parent().add_child(new_slam)
 	$AnimationPlayer.play("Idle")
 
+const descriptions = [
+	# 0
+	"Your dash cooldown is halved, but you always jump as soon as you can.",
+	# 1
+	"Your attacks burn enemies, but you're also on fire!",
+	# 2
+	"",
+	# 3
+	"Landing after a Super Jump deals damage to nearby enemies, but you are slow after landing.",
+	# 4
+	"You are much faster, but you have been poisoned by chocolate!"
+]
+
 func eat(type:int,duration:float) -> bool:
 	var slot = -1
 	for x in range(1,5):
@@ -218,7 +231,7 @@ func eat(type:int,duration:float) -> bool:
 			break
 	if slot == -1:
 		return false
-	active_items[slot] = [type,duration]
+	active_items[slot] = [type,duration,descriptions[type-1]]
 	if type == 3:
 		heal(20)
 	process_buffs()
