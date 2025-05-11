@@ -133,8 +133,12 @@ func _physics_process(delta: float) -> void:
 		if area.get_collision_layer_value(2):
 			if immune == 0 and grounded:
 				var enemy = $Hitbox.get_overlapping_areas()[0].get_parent()
-				velocity += position.direction_to(enemy.position) * -enemy.knockback
-				health -= enemy.damage
+				if area.name.contains("Sneeze"):
+					velocity += position.direction_to(enemy.position) * -60
+					burn(10)
+				else:
+					velocity += position.direction_to(enemy.position) * -enemy.knockback
+					health -= enemy.damage
 				immune = 0.3
 				if state != "Dead":
 					hit()
