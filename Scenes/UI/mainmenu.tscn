@@ -18,16 +18,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = 107.0
-offset_right = 139.0
-offset_bottom = 172.0
+offset_left = -136.0
+offset_top = 80.0
+offset_right = 142.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "CREDITS"
 
 [node name="Controls" type="Button" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = 175.5
-offset_right = 139.0
-offset_bottom = 240.5
+offset_left = -136.0
+offset_top = 148.5
+offset_right = 142.0
+offset_bottom = 213.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
@@ -73,16 +74,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -199.0
-offset_top = -46.0
+offset_top = -27.0
 offset_right = 199.0
-offset_bottom = 26.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 80
 text = "START GAME"
 
 [node name="CreditsInfo" type="RichTextLabel" parent="."]
-z_index = 10
+visible = false
+z_index = 6
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,21 +105,19 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 text = " For TOJam 2025"
 
-[node name="CreditsInfoHide" type="Button" parent="CreditsInfo"]
-z_index = 20
-layout_mode = 0
-offset_left = -117.0
-offset_top = -30.0
-offset_right = 848.0
-offset_bottom = 534.0
-flat = true
-
 [node name="ColorRect" type="ColorRect" parent="CreditsInfo"]
-z_index = -1
+z_index = -5
 layout_mode = 0
 offset_right = 691.0
 offset_bottom = 464.0
 color = Color(0.96932, 0.892755, 0.737962, 0.941176)
+
+[node name="CreditsInfoHide" type="Button" parent="CreditsInfo"]
+z_index = 20
+layout_mode = 0
+offset_right = 965.0
+offset_bottom = 564.0
+flat = true
 
 [node name="MapFloor" parent="." instance=ExtResource("3_4mgpv")]
 z_index = -10
@@ -131,9 +131,10 @@ tile_map_data = PackedByteArray("AAAwAA8ABAAQAAIAAAAxAA8ABAAQAAMAAAAyAA8ABAAQAAM
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_right = 263.0
-offset_bottom = 80.0
+offset_left = -258.0
+offset_top = 70.0
+offset_right = 268.0
+offset_bottom = 150.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "THE SECRET WAR"
@@ -158,10 +159,10 @@ text = "THE SECRET WAR"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -132.0
-offset_top = 70.0
-offset_right = 132.0
-offset_bottom = 96.0
+offset_left = -127.0
+offset_top = 140.0
+offset_right = 137.0
+offset_bottom = 166.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "between cows and goats"
