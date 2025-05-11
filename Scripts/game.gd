@@ -3,22 +3,22 @@ extends Node2D
 var tile_size = 24
 ## How many tiles do each tile consists of (24x24)
 
-var water_var = 5
+var water_var = 7
 ## Amount of Water tiles
 
-var water_size = 5
+var water_size = 3
 ## Amount of Water tile to generate
 
-var fire_var = 5
+var fire_var = 7
 ## Amount of Water tiles
 
-var fire_size = 5
+var fire_size = 3
 ## Amount of Water tile to generate
 
-var choco_var = 5
+var choco_var = 6
 ## Amount of Water tiles
 
-var choco_size = 5
+var choco_size = 3
 ## Amount of Water tile to generate
 
 func _ready() -> void:
