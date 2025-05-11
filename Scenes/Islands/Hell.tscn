@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://nhs327w5142p"]
+[gd_scene load_steps=5 format=4 uid="uid://nhs327w5142p"]
 
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_rcy1r"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_ywykp"]
+[ext_resource type="PackedScene" uid="uid://c6qrbpsay7h7t" path="res://Scenes/hell_cow.tscn" id="3_wqssg"]
+[ext_resource type="PackedScene" uid="uid://lijg8xjgo2gs" path="res://Scenes/main/player.tscn" id="4_x63ui"]
 
-[node name="Island" type="Node2D"]
+[node name="Hell" type="Node2D"]
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [-233.0]
 
@@ -20,3 +22,9 @@ offset_top = -576.0
 offset_right = 1405.0
 offset_bottom = 830.0
 color = Color(0.0980392, 0.0901961, 0.0862745, 1)
+
+[node name="HellCow" parent="." instance=ExtResource("3_wqssg")]
+position = Vector2(-1, 78)
+
+[node name="Player" parent="." instance=ExtResource("4_x63ui")]
+position = Vector2(-7, -129)

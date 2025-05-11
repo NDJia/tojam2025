@@ -5,7 +5,7 @@ var back = preload("res://Assets/Textures/Cows/Water/WaterCowBack.png")
 var fire = preload("res://Scenes/sneeze.tscn")
 var choco = preload("res://Scenes/milk_bottle.tscn")
 
-@onready var player = get_node("../../Player")
+@onready var player
 ## A Refrence To The Player
 
 var damage = 20
@@ -45,6 +45,12 @@ signal sneeze_done
 ## Signals when sneeze anim is finished
 
 func _ready() -> void:
+	if get_parent().name == "Hell":
+		print("hell")
+		player = get_node("../Player")
+	else:
+		player = get_node("../../Player")
+	
 	if type == "Water":
 		health = 10
 		speed = 60

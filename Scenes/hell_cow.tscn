@@ -1,0 +1,255 @@
+[gd_scene load_steps=24 format=3 uid="uid://c6qrbpsay7h7t"]
+
+[ext_resource type="Script" uid="uid://cdxhcosgnl2e2" path="res://Scripts/hell_cow.gd" id="1_lbpjh"]
+[ext_resource type="Texture2D" uid="uid://dy48wy38tpxkx" path="res://Assets/Textures/Cows/HellCow/hellcow front/hell cow front1.png" id="1_odo56"]
+[ext_resource type="Texture2D" uid="uid://bc5ktgsoq4axh" path="res://Assets/Textures/Cows/HellCow/hellcow front/hell cow front2.png" id="2_lbpjh"]
+[ext_resource type="PackedScene" uid="uid://cfxkvmdsws722" path="res://Scenes/fire.tscn" id="2_wnfc4"]
+[ext_resource type="Texture2D" uid="uid://dn6aejqflvme1" path="res://Assets/Textures/Cows/HellCow/hellcow front/hell cow front3.png" id="3_wnfc4"]
+[ext_resource type="Texture2D" uid="uid://bvkucun5pcwvc" path="res://Assets/Textures/Cows/HellCow/hellcow front/hell cow front4.png" id="4_la652"]
+[ext_resource type="Texture2D" uid="uid://ccrswnn57u5kv" path="res://Assets/Textures/Cows/HellCow/hellcow back/hell cow back1.png" id="5_sg1sl"]
+[ext_resource type="Texture2D" uid="uid://dw7ky3leew6eo" path="res://Assets/Textures/Cows/HellCow/hellcow back/hell cow back2.png" id="6_1oqa1"]
+[ext_resource type="Texture2D" uid="uid://df60ihj4c2xby" path="res://Assets/Textures/Cows/HellCow/hellcow back/hell cow back3.png" id="7_40wpj"]
+[ext_resource type="Texture2D" uid="uid://6nx6y2gy21df" path="res://Assets/Textures/Cows/HellCow/hellcow back/hell cow back4.png" id="8_qrvay"]
+[ext_resource type="Texture2D" uid="uid://6tmu0j68cbhj" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side1.png" id="9_q7jc0"]
+[ext_resource type="Texture2D" uid="uid://b73hp8ov7ofpn" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side2.png" id="10_d38f5"]
+[ext_resource type="Texture2D" uid="uid://cr02ws385swv3" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side3.png" id="11_r0urw"]
+[ext_resource type="Texture2D" uid="uid://b83ij1r1o64ox" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side4.png" id="12_by6oh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wnfc4"]
+radius = 32.3883
+
+[sub_resource type="Animation" id="Animation_gfqo3"]
+resource_name = "Back"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_sg1sl"), ExtResource("6_1oqa1"), ExtResource("7_40wpj"), ExtResource("8_qrvay")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_byxb7"]
+resource_name = "Front"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_odo56"), ExtResource("2_lbpjh"), ExtResource("3_wnfc4"), ExtResource("4_la652")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wnfc4"]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_odo56")]
+}
+
+[sub_resource type="Animation" id="Animation_qqmy1"]
+resource_name = "Left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_q7jc0"), ExtResource("10_d38f5"), ExtResource("11_r0urw"), ExtResource("12_by6oh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0rxi0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_odo56")]
+}
+
+[sub_resource type="Animation" id="Animation_4xgky"]
+resource_name = "Right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_q7jc0"), ExtResource("10_d38f5"), ExtResource("11_r0urw"), ExtResource("12_by6oh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ccc3l"]
+_data = {
+&"Back": SubResource("Animation_gfqo3"),
+&"Front": SubResource("Animation_byxb7"),
+&"Idle": SubResource("Animation_wnfc4"),
+&"Left": SubResource("Animation_qqmy1"),
+&"RESET": SubResource("Animation_0rxi0"),
+&"Right": SubResource("Animation_4xgky")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wnfc4"]
+radius = 15.0
+height = 62.0
+
+[node name="HellCow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lbpjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wnfc4")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -65.0
+offset_top = -86.0
+offset_right = 66.0
+offset_bottom = -69.0
+max_value = 200.0
+
+[node name="Fire" parent="." instance=ExtResource("2_wnfc4")]
+scale = Vector2(2, 2)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ccc3l")
+}
+
+[node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_odo56")
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[node name="BurnTimer" type="Timer" parent="."]
+
+[node name="UpdateTarget" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Nav" type="NavigationAgent2D" parent="."]
+target_desired_distance = 25.0
+debug_enabled = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SummonTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AttackSwitch" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wnfc4")
+
+[connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
+[connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
+[connection signal="timeout" from="UpdateTarget" to="." method="UpdateTarget"]
+[connection signal="timeout" from="SummonTimer" to="." method="summon"]
+[connection signal="timeout" from="AttackSwitch" to="." method="ChangeAttack"]
