@@ -15,7 +15,7 @@ const food_list = [null, coffee, pepper, pretzel, orange, brownie, watermelon, a
 var player
 @onready var health = $Health
 var items
-var range_skill
+# var range_skill
 
 @onready var passives = [$PowerBar/Passive1, $PowerBar/Passive2, $PowerBar/Passive3, $PowerBar/Passive4]
 @onready var passives_images = [$PowerBar/Passive1/texture, $PowerBar/Passive2/texture, $PowerBar/Passive3/texture, $PowerBar/Passive4/texture]
@@ -26,7 +26,7 @@ var range_skill
 func _ready():
 	player = get_node("../Player")
 	items = player.active_items
-	range_skill = player.main_item
+	# range_skill = player.main_item
 
 func _process(_dt):
 	health.text = str(int(player.health))
@@ -39,7 +39,7 @@ func _process(_dt):
 			img.texture = food_list[item[0]]
 			timer.text = str(int(item[1]))
 	
-	print(range_skill)
-	if range_skill != []:
-		special_img.texture = food_list[range_skill[0]]
-		special_ammo.text = str(int(range_skill[1]))
+	# print(range_skill)
+	if player.main_item != []:
+		special_img.texture = food_list[player.main_item[0]]
+		special_ammo.text = str(int(player.main_item[1]))
