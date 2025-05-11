@@ -127,20 +127,26 @@ func _physics_process(delta: float) -> void:
 			$RyanProgressBar.max_value = def_dash_cooldown * dash_cd_buff
 			cooldown = def_dash_cooldown * dash_cd_buff
 			jump()
+			
 	# Handles the hitbox detection for collecting food and getting hit
 	for area in $Hitbox.get_overlapping_areas():
 		if area.get_collision_layer_value(2):
 			if immune == 0 and grounded:
 				var enemy = $Hitbox.get_overlapping_areas()[0].get_parent()
-				velocity += position.direction_to(enemy.position) * -enemy.knockback
-				health -= enemy.damage
+				if area.name.contains("Sneeze"):
+					velocity += position.direction_to(enemy.position) * -60
+					burn(10)
+				else:
+					velocity += position.direction_to(enemy.position) * -enemy.knockback
+					health -= enemy.damage
 				immune = 0.3
 				if state != "Dead":
 					hit()
 		elif area.get_collision_layer_value(4):
-			eat(area.get_parent().type,area.get_parent().duration)
-			area.get_parent().eat()
+			if eat(area.get_parent().type,area.get_parent().duration):
+				area.get_parent().eat()
 			
+	# Checks the weapon hitbox for enemies
 	if $Weapon/AttackBox.monitoring:
 		for enemy in $Weapon/AttackBox.get_overlapping_areas():
 			enemy.get_parent().hit(damage)
@@ -200,17 +206,19 @@ func jump():
 		get_parent().add_child(new_slam)
 	$AnimationPlayer.play("Idle")
 
-func eat(type:int,duration:float):
-	var slot
+func eat(type:int,duration:float) -> bool:
+	var slot = -1
 	for x in range(1,5):
 		if active_items.get(x) == []:
 			slot = x
 			break
+	if slot == -1:
+		return false
 	active_items[slot] = [type,duration]
 	if type == 3:
 		heal(20)
 	process_buffs()
-	print(active_items)
+	return true
 
 func AttackFinish(anim_name: StringName) -> void:
 	$AttackAnimator.play("RESET")

@@ -1,26 +1,143 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpevbo6jby6w2"]
+[gd_scene load_steps=16 format=3 uid="uid://cpevbo6jby6w2"]
 
 [ext_resource type="Script" uid="uid://cl251gr33y2pd" path="res://Scripts/ground_slam.gd" id="1_2spko"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_xwimr"]
-
-[sub_resource type="Gradient" id="Gradient_2spko"]
-colors = PackedColorArray(1, 0, 0.0166664, 0.639216, 1, 0, 0.0156863, 0.639216)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rctms"]
-gradient = SubResource("Gradient_2spko")
+[ext_resource type="Texture2D" uid="uid://c218e1fvmrdth" path="res://Assets/Textures/Smash/ground shaking animate10.png" id="2_blyab"]
+[ext_resource type="Texture2D" uid="uid://c4k5svuqeb7m2" path="res://Assets/Textures/Smash/ground shaking animate1.png" id="3_d54u7"]
+[ext_resource type="Texture2D" uid="uid://kxqbp3ao0fho" path="res://Assets/Textures/Smash/ground shaking animate2.png" id="4_ogeht"]
+[ext_resource type="Texture2D" uid="uid://jkwgxwseiq8o" path="res://Assets/Textures/Smash/ground shaking animate3.png" id="5_xs1b4"]
+[ext_resource type="Texture2D" uid="uid://b6hqeyqwpahdu" path="res://Assets/Textures/Smash/ground shaking animate4.png" id="6_v17jm"]
+[ext_resource type="Texture2D" uid="uid://c75yicbkuo6jy" path="res://Assets/Textures/Smash/ground shaking animate5.png" id="7_wet2i"]
+[ext_resource type="Texture2D" uid="uid://bxp3bf8qvc5fp" path="res://Assets/Textures/Smash/ground shaking animate6.png" id="8_803n0"]
+[ext_resource type="Texture2D" uid="uid://bmvs8srfdiye7" path="res://Assets/Textures/Smash/ground shaking animate7.png" id="9_0n0l6"]
+[ext_resource type="Texture2D" uid="uid://ha0thpjised1" path="res://Assets/Textures/Smash/ground shaking animate8.png" id="10_us2kq"]
+[ext_resource type="Texture2D" uid="uid://28gb1807d5bi" path="res://Assets/Textures/Smash/ground shaking animate9.png" id="11_i7065"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2o6ak"]
 radius = 57.0
 
+[sub_resource type="Animation" id="Animation_y8p4r"]
+resource_name = "BOOM"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmashTex:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmashTex2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SmashTex3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SmashTex4:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SmashTex5:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SmashTex6:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SmashTex7:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SmashTex8:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_d54u7"), ExtResource("4_ogeht"), ExtResource("5_xs1b4"), ExtResource("6_v17jm"), ExtResource("7_wet2i"), ExtResource("8_803n0"), ExtResource("9_0n0l6"), ExtResource("10_us2kq"), ExtResource("11_i7065"), ExtResource("2_blyab")]
+}
+
+[sub_resource type="Animation" id="Animation_7p5mj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmashTex:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjm48"]
+_data = {
+&"BOOM": SubResource("Animation_y8p4r"),
+&"RESET": SubResource("Animation_7p5mj")
+}
+
 [node name="GroundSlam" type="Node2D"]
 z_index = -2
 script = ExtResource("1_2spko")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(110.455, 110.455)
-mesh = SubResource("SphereMesh_xwimr")
-texture = SubResource("GradientTexture2D_rctms")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -29,8 +146,48 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_2o6ak")
 
-[node name="Despawn" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+[node name="SmashTex" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-41, 0)
 
-[connection signal="timeout" from="Despawn" to="." method="Despawn"]
+[node name="SmashTex2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 0)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -43)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 39)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-31, -26)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(33, -28)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-25, 26)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashTex8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(28, 26)
+texture = ExtResource("3_d54u7")
+
+[node name="SmashAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hjm48")
+}
+
+[connection signal="animation_finished" from="SmashAnim" to="." method="_on_smash_anim_animation_finished"]
