@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bya2jmt3tw3ow"]
+
+[ext_resource type="Script" uid="uid://bgy18yjy6gou3" path="res://Scripts/seed.gd" id="1_h627t"]
+[ext_resource type="Texture2D" uid="uid://be0uysqlhul5j" path="res://Assets/Textures/seed.png" id="2_arhpd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arhpd"]
+radius = 3.0
+
+[node name="Seed" type="Node2D"]
+script = ExtResource("1_h627t")
+
+[node name="SeedTex" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_arhpd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_arhpd")
+
+[connection signal="area_entered" from="Area2D" to="." method="Hit"]

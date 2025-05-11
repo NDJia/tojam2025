@@ -41,11 +41,14 @@ var sneezing = false
 var sneeze_cooldown = 2
 ## Cooldown between sneezes
 
+signal sneeze_done
+## Signals when sneeze anim is finished
+
 func _ready() -> void:
 	if type == "Water":
-		health = 20
-		speed = 80
-		damage = 10
+		health = 10
+		speed = 60
+		damage = 5
 	elif type == "Fire":
 		health = 40
 		speed = 40
@@ -133,6 +136,8 @@ func die():
 	$Hitbox.monitorable = false
 	speed = 0
 	await(get_tree().create_timer(1,false).timeout)
+	if sneezing and type == "Fire":
+		await(sneeze_done)
 	queue_free()
 
 func burn(lenght = 5):
@@ -172,10 +177,12 @@ func sneeze():
 	new_sneeze.queue_free()
 	sneezing = false
 	sneeze_cooldown = 2
+	sneeze_done.emit()
 
 
 func Choco() -> void:
-	var new = choco.instantiate()
-	new.global_position = global_position
-	new.target = player.global_position + Vector2(randi_range(-30,30),randi_range(-30,30))
-	get_parent().get_parent().add_child(new)
+	if condition == "Attack":
+		var new = choco.instantiate()
+		new.global_position = global_position
+		new.target = player.global_position + Vector2(randi_range(-30,30),randi_range(-30,30))
+		get_parent().get_parent().add_child(new)
