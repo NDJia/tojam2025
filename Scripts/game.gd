@@ -29,17 +29,3 @@ func _ready() -> void:
 		var new_fire = load("res://Scenes/Islands/Fire/Fire"+ str(randi_range(1,fire_var)) +".tscn").instantiate()
 		new_fire.position = Vector2(water_size*tile_size*16 + x*tile_size*16,0)
 		add_child(new_fire)
-	
-	
-	'''
-	for y in range(-map_size,map_size+1):
-		for x in range(-map_size,map_size+1):
-			if x == 0 and y == 0:
-				var new_island = load("res://Scenes/Islands/IslandCenter.tscn").instantiate()
-				new_island.position = Vector2(x * (tile_size*16), y * (tile_size*16))
-				add_child(new_island)
-			else:
-				var new_island = load("res://Scenes/Islands/Island"+ str(randi_range(1,var_num)) +".tscn").instantiate()
-				new_island.position = Vector2(x * (tile_size*16), y * (tile_size*16))
-				add_child(new_island)
-	'''

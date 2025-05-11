@@ -3,7 +3,7 @@ var side = preload("res://Assets/Textures/Cows/Water/WaterCowSide.png")
 var front = preload("res://Assets/Textures/Cows/Water/WaterCowFront.png")
 var back = preload("res://Assets/Textures/Cows/Water/WaterCowBack.png")
 var fire = preload("res://Scenes/sneeze.tscn")
-
+var choco = preload("res://Scenes/milk_bottle.tscn")
 
 @onready var player = get_node("../../Player")
 ## A Refrence To The Player
@@ -50,6 +50,11 @@ func _ready() -> void:
 		health = 40
 		speed = 40
 		damage = 20
+	elif type == "Choco":
+		health = 40
+		speed = 10
+		damage = 10
+		$ChocoTimer.start()
 	# Sets the properties based on type
 	
 	$Body.flip_h = int(randi_range(0,1))
@@ -167,3 +172,10 @@ func sneeze():
 	new_sneeze.queue_free()
 	sneezing = false
 	sneeze_cooldown = 2
+
+
+func Choco() -> void:
+	var new = choco.instantiate()
+	new.global_position = global_position
+	new.target = player.global_position + Vector2(randi_range(-30,30),randi_range(-30,30))
+	get_parent().get_parent().add_child(new)

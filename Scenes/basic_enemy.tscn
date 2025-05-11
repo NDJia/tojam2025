@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://yc6d0anpe5kp"]
+[gd_scene load_steps=71 format=3 uid="uid://yc6d0anpe5kp"]
 
 [ext_resource type="Script" uid="uid://dvi48do70xkkb" path="res://Scripts/basic_enemy.gd" id="1_fecjr"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="2_6kac6"]
@@ -36,6 +36,18 @@
 [ext_resource type="Texture2D" uid="uid://csqvb72vh82tq" path="res://Assets/Textures/Cows/Fire/Sneeze/firecow sneeze5.png" id="33_vy3ag"]
 [ext_resource type="Texture2D" uid="uid://drsxs5xlrvwi7" path="res://Assets/Textures/Cows/Fire/Sneeze/firecow sneeze4.png" id="34_b3ocg"]
 [ext_resource type="Texture2D" uid="uid://ctgtqtot61jgb" path="res://Assets/Textures/Cows/Fire/Sneeze/firecow sneeze6.png" id="35_sqimp"]
+[ext_resource type="Texture2D" uid="uid://pvrp383c0c2y" path="res://Assets/Textures/Cows/Chocolate/Back/choco walk back1.png" id="36_ks3y3"]
+[ext_resource type="Texture2D" uid="uid://bqhx0fdmlq6yh" path="res://Assets/Textures/Cows/Chocolate/Back/choco walk back2.png" id="37_lr4m6"]
+[ext_resource type="Texture2D" uid="uid://ey55gwpuv2v6" path="res://Assets/Textures/Cows/Chocolate/Back/choco walk back3.png" id="38_vy3ag"]
+[ext_resource type="Texture2D" uid="uid://rx1mm22haxk5" path="res://Assets/Textures/Cows/Chocolate/Back/choco walk back4.png" id="39_b3ocg"]
+[ext_resource type="Texture2D" uid="uid://ddcq0gybcl6x8" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front1.png" id="40_sqimp"]
+[ext_resource type="Texture2D" uid="uid://c0xuclkmwkdf0" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front2.png" id="41_26pqn"]
+[ext_resource type="Texture2D" uid="uid://k8u21bokk3pc" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front3.png" id="42_ypl1d"]
+[ext_resource type="Texture2D" uid="uid://bb0q4rl5o84q1" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front4.png" id="43_vgt1t"]
+[ext_resource type="Texture2D" uid="uid://b0sgssnp3tyyi" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side1.png" id="44_28ell"]
+[ext_resource type="Texture2D" uid="uid://eer763r3sft3" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side2.png" id="45_30mw8"]
+[ext_resource type="Texture2D" uid="uid://kxfryblxafdm" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side3.png" id="46_bkrr2"]
+[ext_resource type="Texture2D" uid="uid://8m2tijtxta43" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side4.png" id="47_x7djk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4aor"]
 radius = 9.0
@@ -428,8 +440,128 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_6uq55"]
+resource_name = "ChocoBackWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("36_ks3y3"), ExtResource("37_lr4m6"), ExtResource("38_vy3ag"), ExtResource("39_b3ocg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_i8n0w"]
+resource_name = "ChocoFrontWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("40_sqimp"), ExtResource("41_26pqn"), ExtResource("42_ypl1d"), ExtResource("43_vgt1t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cvccg"]
+resource_name = "ChocoLeftWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_28ell"), ExtResource("45_30mw8"), ExtResource("46_bkrr2"), ExtResource("47_x7djk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ka22d"]
+resource_name = "ChocoRightWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_28ell"), ExtResource("45_30mw8"), ExtResource("46_bkrr2"), ExtResource("47_x7djk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jlwu0"]
 _data = {
+&"ChocoBackWalk": SubResource("Animation_6uq55"),
+&"ChocoFrontWalk": SubResource("Animation_i8n0w"),
+&"ChocoLeftWalk": SubResource("Animation_cvccg"),
+&"ChocoRightWalk": SubResource("Animation_ka22d"),
 &"FireBackWalk": SubResource("Animation_tv6co"),
 &"FireFrontWalk": SubResource("Animation_26pqn"),
 &"FireIdle": SubResource("Animation_28ell"),
@@ -518,6 +650,9 @@ bus = &"SFX"
 
 [node name="BurnTimer" type="Timer" parent="."]
 
+[node name="ChocoTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="UpdateTarget" to="." method="Update_Target"]
 [connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
 [connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
+[connection signal="timeout" from="ChocoTimer" to="." method="Choco"]
