@@ -20,7 +20,8 @@ var range_skill
 @onready var passives = [$PowerBar/Passive1, $PowerBar/Passive2, $PowerBar/Passive3, $PowerBar/Passive4]
 @onready var passives_images = [$PowerBar/Passive1/texture, $PowerBar/Passive2/texture, $PowerBar/Passive3/texture, $PowerBar/Passive4/texture]
 @onready var passives_timers = [$PowerBar/Passive1/timer, $PowerBar/Passive2/timer, $PowerBar/Passive3/timer, $PowerBar/Passive4/timer]
-@onready var special = $RangedPower
+@onready var special_img = $RangedPower/texture
+@onready var special_ammo = $RangedPower/timer
 
 func _ready():
 	player = get_node("../Player")
@@ -37,3 +38,8 @@ func _process(_dt):
 		if item != []:
 			img.texture = food_list[item[0]]
 			timer.text = str(int(item[1]))
+	
+	print(range_skill)
+	if range_skill != []:
+		special_img.texture = food_list[range_skill[0]]
+		special_ammo.text = str(int(range_skill[1]))

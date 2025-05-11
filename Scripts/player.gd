@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 	if shoot_cooldown < 0:
 		shoot_cooldown = 0
 		
-	print(main_item)
+	#print(main_item)
 	if main_item != []:
 		if main_item[0] == 8:
 			main_item[1] -= delta
