@@ -83,7 +83,6 @@ theme_override_font_sizes/font_size = 80
 text = "START GAME"
 
 [node name="CreditsInfo" type="RichTextLabel" parent="."]
-visible = false
 z_index = 6
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,7 +102,10 @@ theme_override_font_sizes/mono_font_size = 64
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
-text = " For TOJam 2025"
+text = " For TOJam 2025
+
+ By Jasveer, Maddie,
+      Tuna, and N.D. Jia"
 
 [node name="ColorRect" type="ColorRect" parent="CreditsInfo"]
 z_index = -5

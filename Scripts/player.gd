@@ -208,6 +208,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack") and not is_attacking and state != "Dead":
 		is_attacking = true
 		$AttackAnimator.play("Right")
+	
+	# Pause the game if the escape key is pressed
+	if Input.is_action_just_pressed("Pause"):
+		$PauseMenu.show()
+		get_tree().paused = true
 
 func hit():
 	$Hitbox/Body.modulate = Color("ff0000")
