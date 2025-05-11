@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c87s8p1a78vey"]
+[gd_scene load_steps=2 format=3 uid="uid://c87s8p1a78vey"]
 
 [ext_resource type="Script" uid="uid://hohmvxep0ic0" path="res://Scripts/pausemenu.gd" id="1_ng1wx"]
-[ext_resource type="PackedScene" uid="uid://s3dxa1gt5e7d" path="res://Scenes/UI/powerups.tscn" id="1_rp7hy"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
@@ -23,22 +22,6 @@ border_color = Color(0.731977, 0.46271, 0.241689, 1)
 border_width = 10.0
 editor_only = false
 
-[node name="Resume" type="Button" parent="."]
-z_index = 5
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.5
-offset_top = -61.5
-offset_right = 175.5
-offset_bottom = -2.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "RESUME GAME"
-
 [node name="ToMainMenu" type="Button" parent="."]
 z_index = 5
 anchors_preset = 8
@@ -55,6 +38,22 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 52
 text = "QUIT TO MAIN MENU"
 
+[node name="Resume" type="Button" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -61.5
+offset_right = 175.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "RESUME GAME"
+
 [node name="PauseLabel" type="Label" parent="."]
 z_index = 10
 anchors_preset = 5
@@ -67,9 +66,6 @@ offset_bottom = 134.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 80
 text = "GAME PAUSED"
-
-[node name="Powerups" parent="." instance=ExtResource("1_rp7hy")]
-visible = false
 
 [node name="Label" type="Label" parent="."]
 z_index = 5
@@ -87,3 +83,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "(This will end the game!)"
 horizontal_alignment = 1
+
+[connection signal="button_down" from="ToMainMenu" to="." method="to_menu"]
+[connection signal="button_down" from="Resume" to="." method="resume"]
