@@ -22,10 +22,6 @@ window/size/viewport_height=540
 window/size/borderless=true
 window/stretch/mode="viewport"
 
-[editor]
-
-run/main_run_args="--verbose"
-
 [gui]
 
 theme/custom_font="uid://virihp06f2y7"

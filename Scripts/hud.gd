@@ -10,7 +10,7 @@ const watermelon = preload("res://Assets/Textures/Foods/Watermelon.png")
 const apple = preload("res://Assets/Textures/Foods/Apple.png")
 const pumpkin = preload("res://Assets/Textures/Foods/Pumpkin.png")
 
-const food_list = [coffee, pepper, pretzel, orange, brownie, watermelon, apple, pumpkin]
+const food_list = [null, coffee, pepper, pretzel, orange, brownie, watermelon, apple, pumpkin]
 
 var player
 @onready var health = $Health
@@ -31,10 +31,9 @@ func _process(_dt):
 	health.text = str(int(player.health))
 	# iterate through the active item list
 	for i in range(4):
-		#print(items[i + 1])
 		var item = items[i + 1]
 		var img = passives_images[i]
 		var timer = passives_timers[i]
 		if item != []:
-			img.texture = food_list[item.type]
-			timer.text = str(int(item.duration))
+			img.texture = food_list[item[0]]
+			timer.text = str(int(item[1]))

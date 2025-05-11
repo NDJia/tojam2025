@@ -443,5 +443,5 @@ wait_time = 2.0
 [connection signal="timeout" from="PoisonTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
 [connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
-[connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
 [connection signal="timeout" from="BurnTimer" to="." method="PoisonTimer"]
+[connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]

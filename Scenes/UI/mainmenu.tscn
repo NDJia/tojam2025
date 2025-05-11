@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="3_4mgpv"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="4_kcu8t"]
 [ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="5_70146"]
-[ext_resource type="Texture2D" uid="uid://b0sgssnp3tyyi" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side1.png" id="6_hdhgp"]
+[ext_resource type="Texture2D" uid="uid://blothkihw5b6u" path="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide1.png" id="6_hdhgp"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_6olnl")

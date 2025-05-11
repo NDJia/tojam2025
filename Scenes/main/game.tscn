@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://m3w3wy2ctq27"]
+[gd_scene load_steps=7 format=3 uid="uid://m3w3wy2ctq27"]
 
 [ext_resource type="PackedScene" uid="uid://lijg8xjgo2gs" path="res://Scenes/main/player.tscn" id="1_80i0f"]
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_duhwf"]
 [ext_resource type="Script" uid="uid://d03xu7n4p5rvq" path="res://Scripts/game.gd" id="1_y2epo"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_y2epo"]
 [ext_resource type="PackedScene" uid="uid://b5wog7x507abq" path="res://Scenes/UI/hud.tscn" id="5_y2epo"]
+[ext_resource type="PackedScene" uid="uid://c87s8p1a78vey" path="res://Scenes/UI/pausemenu.tscn" id="6_s5m3r"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -18,3 +19,6 @@ metadata/_edit_horizontal_guides_ = [-233.0]
 [node name="Player" parent="." instance=ExtResource("1_80i0f")]
 
 [node name="HUD" parent="." instance=ExtResource("5_y2epo")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_s5m3r")]
+visible = false

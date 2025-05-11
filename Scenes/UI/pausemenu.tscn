@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c87s8p1a78vey"]
+[gd_scene load_steps=3 format=3 uid="uid://c87s8p1a78vey"]
 
+[ext_resource type="Script" uid="uid://hohmvxep0ic0" path="res://Scripts/pausemenu.gd" id="1_ng1wx"]
 [ext_resource type="PackedScene" uid="uid://s3dxa1gt5e7d" path="res://Scenes/UI/powerups.tscn" id="1_rp7hy"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
+script = ExtResource("1_ng1wx")
 
 [node name="Border" type="ReferenceRect" parent="."]
 z_index = 1000
