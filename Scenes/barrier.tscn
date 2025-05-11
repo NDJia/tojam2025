@@ -1,35 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://c68wrypsx8c7q"]
+[gd_scene load_steps=16 format=3 uid="uid://c68wrypsx8c7q"]
 
 [ext_resource type="Script" uid="uid://bynlxdf54c5wn" path="res://Scripts/barrier.gd" id="1_725b1"]
-
-[sub_resource type="Gradient" id="Gradient_uvob8"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wexun"]
-gradient = SubResource("Gradient_uvob8")
+[ext_resource type="Texture2D" uid="uid://b1om0a6t1an8j" path="res://Assets/Textures/Gate/gateee1.png" id="2_uevnx"]
+[ext_resource type="Texture2D" uid="uid://1om4xtmo8qv7" path="res://Assets/Textures/Gate/gateee2.png" id="3_uxuox"]
+[ext_resource type="Texture2D" uid="uid://dp5vgqdft37oi" path="res://Assets/Textures/Gate/gateee3.png" id="4_c63y1"]
+[ext_resource type="Texture2D" uid="uid://7pybpcjc0g2m" path="res://Assets/Textures/Gate/gateee4.png" id="5_gm1g0"]
+[ext_resource type="Texture2D" uid="uid://bfjx8fsdu57xj" path="res://Assets/Textures/Gate/gateee5.png" id="6_6ldds"]
+[ext_resource type="Texture2D" uid="uid://be80tj2mptcat" path="res://Assets/Textures/Gate/gateee6.png" id="7_lihvt"]
+[ext_resource type="Texture2D" uid="uid://bmedualv5tjqs" path="res://Assets/Textures/Gate/gateee7.png" id="8_xmvti"]
+[ext_resource type="Texture2D" uid="uid://bgcr3hw8yxdn4" path="res://Assets/Textures/Gate/gateee8.png" id="9_cgn6i"]
+[ext_resource type="Texture2D" uid="uid://dtqwflcfv4gex" path="res://Assets/Textures/Gate/gateee9.png" id="10_sr0o1"]
+[ext_resource type="Texture2D" uid="uid://sd4b6ah5ux4m" path="res://Assets/Textures/Gate/gateee10.png" id="11_ywlig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1olmg"]
-size = Vector2(20, 116)
+size = Vector2(19, 56)
+
+[sub_resource type="Animation" id="Animation_uxuox"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BarrierTex:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_uevnx"), ExtResource("3_uxuox"), ExtResource("4_c63y1"), ExtResource("5_gm1g0"), ExtResource("6_6ldds"), ExtResource("7_lihvt"), ExtResource("8_xmvti"), ExtResource("9_cgn6i"), ExtResource("10_sr0o1"), ExtResource("11_ywlig")]
+}
+
+[sub_resource type="Animation" id="Animation_c63y1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BarrierTex:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uevnx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm1g0"]
+_data = {
+&"Open": SubResource("Animation_uxuox"),
+&"RESET": SubResource("Animation_c63y1")
+}
 
 [node name="Barrier" type="Node2D"]
 script = ExtResource("1_725b1")
 
 [node name="BarrierTex" type="Sprite2D" parent="."]
-position = Vector2(-1, 1.90735e-06)
-scale = Vector2(0.28125, 1.78125)
-texture = SubResource("GradientTexture2D_wexun")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 13.0
+texture_filter = 1
+position = Vector2(-10, 6)
+texture = ExtResource("2_uevnx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, -1)
+position = Vector2(-10, -6)
 shape = SubResource("RectangleShape2D_1olmg")
 
 [node name="CheckMob" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gm1g0")
+}
 
 [connection signal="timeout" from="CheckMob" to="." method="Check"]

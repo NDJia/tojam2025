@@ -42,7 +42,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_f0min"]
 resource_name = "Sneeze"
 length = 1.1
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,4 +92,4 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SneezeArea"]
-polygon = PackedVector2Array(0, 0, 30, -15, 30, 13)
+polygon = PackedVector2Array(0, 0, 23, -8, 23, 4.5)
