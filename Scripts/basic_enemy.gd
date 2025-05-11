@@ -4,6 +4,7 @@ var front = preload("res://Assets/Textures/Cows/Water/WaterCowFront.png")
 var back = preload("res://Assets/Textures/Cows/Water/WaterCowBack.png")
 var fire = preload("res://Scenes/sneeze.tscn")
 var choco = preload("res://Scenes/milk_bottle.tscn")
+var food = preload("res://Scenes/food.tscn")
 
 @onready var player
 ## A Refrence To The Player
@@ -135,6 +136,8 @@ func hit(damage:int, reset_immune = true, ignore_immune = false):
 func push(force:int,pos:Vector2):
 	global_position += (global_position - pos).normalized() * force
 
+var food_spawned = false
+
 func die():
 	# Starts the dying
 	condition = "Dead"
@@ -144,6 +147,11 @@ func die():
 	await(get_tree().create_timer(1,false).timeout)
 	if sneezing and type == "Fire":
 		await(sneeze_done)
+	if randi_range(1,5) == 2 and not food_spawned:
+		var new_food = food.instantiate()
+		new_food.position = position
+		get_parent().add_child(new_food)
+		food_spawned = true
 	queue_free()
 
 func burn(lenght = 5):
@@ -179,8 +187,6 @@ func sneeze():
 	await(get_tree().create_timer(0.8,false).timeout)
 	new_sneeze.get_child(1).play("Sneeze")
 	get_parent().get_parent().add_child(new_sneeze)
-	if condition == "Dead":
-		new_sneeze.queue_free()
 	await(get_tree().create_timer(0.9,false).timeout)
 	new_sneeze.queue_free()
 	sneezing = false

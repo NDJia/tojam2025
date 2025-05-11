@@ -453,7 +453,7 @@ color = Color(0.152941, 0.411765, 0.764706, 1)
 
 [connection signal="animation_finished" from="AttackAnimator" to="." method="AttackFinish"]
 [connection signal="timeout" from="PoisonTimer" to="." method="PoisonTimer"]
-[connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
-[connection signal="timeout" from="BurnTimer" to="." method="PoisonTimer"]
+[connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
+[connection signal="timeout" from="BurnTimer" to="." method="PoisonTimer"]
