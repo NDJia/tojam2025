@@ -1,21 +1,16 @@
-[gd_scene load_steps=5 format=4 uid="uid://dokdw0t3rd6sy"]
+[gd_scene load_steps=7 format=4 uid="uid://dokdw0t3rd6sy"]
 
 [ext_resource type="Texture2D" uid="uid://bdlo8a0sovtdn" path="res://Assets/Textures/icon.svg" id="1_5c06j"]
 [ext_resource type="Script" uid="uid://dxk3dn6msolib" path="res://Scripts/mainmenu.gd" id="1_6olnl"]
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="3_4mgpv"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="4_kcu8t"]
+[ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="5_70146"]
+[ext_resource type="Texture2D" uid="uid://b0sgssnp3tyyi" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side1.png" id="6_hdhgp"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_6olnl")
-
-[node name="TitleImg" type="TextureRect" parent="."]
-visible = false
-z_index = -500
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(23.9883, 13.5468)
-texture = ExtResource("1_5c06j")
-expand_mode = 2
+metadata/_edit_vertical_guides_ = [20.0]
+metadata/_edit_horizontal_guides_ = [20.0, 537.0]
 
 [node name="Credits" type="Button" parent="."]
 anchors_preset = 8
@@ -87,46 +82,42 @@ theme_override_font_sizes/font_size = 80
 text = "START GAME"
 
 [node name="CreditsInfo" type="RichTextLabel" parent="."]
-visible = false
 z_index = 10
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -200.5
-offset_right = 320.0
-offset_bottom = 200.5
+offset_left = -361.5
+offset_top = -253.0
+offset_right = 361.5
+offset_bottom = 253.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
-text = "THIS IS THE CREDITS"
+text = " For TOJam 2025"
 
 [node name="CreditsInfoHide" type="Button" parent="CreditsInfo"]
+z_index = 20
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -117.0
+offset_top = -30.0
+offset_right = 848.0
+offset_bottom = 534.0
 flat = true
 
-[node name="QuitConfirm" type="GridContainer" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="QuitConfirmLabel" type="Label" parent="QuitConfirm"]
-layout_mode = 2
-
-[node name="QuitConfirmYes" type="Button" parent="QuitConfirm"]
-layout_mode = 2
-
-[node name="QuitConfirmNo" type="Button" parent="QuitConfirm"]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="CreditsInfo"]
+z_index = -1
+layout_mode = 0
+offset_right = 691.0
+offset_bottom = 464.0
+color = Color(0.96932, 0.892755, 0.737962, 0.941176)
 
 [node name="MapFloor" parent="." instance=ExtResource("3_4mgpv")]
 z_index = -10
@@ -134,4 +125,72 @@ tile_map_data = PackedByteArray("AAA6ACEAAAADAAoAAAA6ACAAAAADAAoAAAA6AB8AAAABAAw
 
 [node name="MapProp" parent="." instance=ExtResource("4_kcu8t")]
 z_index = -2
-tile_map_data = PackedByteArray("AAAwAA8ABAAQAAIAAAAxAA8ABAAQAAMAAAAyAA8ABAAQAAMAAAAzAA8ABAAQAAMAAAA0AA8ABAAQAAMAAAA1AA8ABAAQAAMAAAA2AA8ABAAQAAMAAAA3AA8ABAAQAAMAAAA4AA8ABAAQAAMAAAA5AA8ABAAQAAMAAAA6AA8ABAAQAAMAAAA7AA8ABAAQAAMAAAA8AA8ABAAQAAMAAAAfAAIABAASAAMAAAAfAAEABAARAAMAAAAfAAAABAARAAMAAAAfAP//BAARAAMAAAArABsABAASAAIAAAArACAABAASAAMAAAArABwABAARAAMAAAArAB0ABAARAAMAAAArAB4ABAARAAMAAAArAB8ABAARAAMAAAAKAA0ABAATAAQAAAAKAA4ABAATAAUAAAAKAA8ABAATAAYAAAAKABAABAATAAcAAAALAA0ABAAUAAQAAAALAA4ABAAUAAUAAAALAA8ABAAUAAYAAAALABAABAAUAAcAAAAMAA0ABAAVAAQAAAAMAA4ABAAVAAUAAAAMAA8ABAAVAAYAAAAMABAABAAVAAcAAAAYAAsABAATAAQAAAAYAAwABAATAAUAAAAYAA0ABAATAAYAAAAYAA4ABAATAAcAAAAZAAsABAAUAAQAAAAZAAwABAAUAAUAAAAZAA0ABAAUAAYAAAAZAA4ABAAUAAcAAAAaAAsABAAVAAQAAAAaAAwABAAVAAUAAAAaAA0ABAAVAAYAAAAaAA4ABAAVAAcAAAAmABQABAATAAQAAAAmABUABAATAAUAAAAmABYABAATAAYAAAAmABcABAATAAcAAAAnABQABAAUAAQAAAAnABUABAAUAAUAAAAnABYABAAUAAYAAAAnABcABAAUAAcAAAAoABQABAAVAAQAAAAoABUABAAVAAUAAAAoABYABAAVAAYAAAAoABcAAwADAAAAAAAwAAoABAATAAQAAAAwAAsABAATAAUAAAAwAAwABAATAAYAAAAwAA0ABAATAAcAAAAxAAoABAAUAAQAAAAxAAsABAAUAAUAAAAxAAwABAAUAAYAAAAxAA0ABAAUAAcAAAAyAAoABAAVAAQAAAAyAAsABAAVAAUAAAAyAAwABAAVAAYAAAAyAA0ABAAVAAcAAAASABUABAASAAAAAAATABUABAATAAAAAAAoAAUABAASAAAAAAApAAUABAATAAAAAAAvAB4ABAASAAAAAAAwAB4ABAATAAAAAAAtACAABAAQAAAAAAAwABYABAAQAAEAAAAiAAsABAAQAAEAAAAfAAMAAwACAAAAAAAfAAQAAwACAAEAAAAcABMAAwABAAAAAAAzABYAAwABAAAAAAAxAB4AAwAEAAAAAAAVAAcAAwAAAAAAAAAtAAgAAwAEAAAAAAAuAAgAAwAFAAAAAAAqAAkAAQADAAAAAAAsABQABAAUAAEAAAAMABYABAAUAAAAAAAaABcAAQABAAIAAAAkABMAAQABAAIAAAASAB0AAwAAAAEAAAA7ABQAAwAAAAEAAAALAAQAAwAAAAEAAAA3AAEAAwAAAAEAAAASAAQAAwABAAEAAAAKACAAAwABAAEAAAAvABkAAwABAAEAAAA1ACAAAwADAAEAAAAmAAEAAwADAAEAAAA=")
+tile_map_data = PackedByteArray("AAAwAA8ABAAQAAIAAAAxAA8ABAAQAAMAAAAyAA8ABAAQAAMAAAAzAA8ABAAQAAMAAAA0AA8ABAAQAAMAAAA1AA8ABAAQAAMAAAA2AA8ABAAQAAMAAAA3AA8ABAAQAAMAAAA4AA8ABAAQAAMAAAA5AA8ABAAQAAMAAAA6AA8ABAAQAAMAAAA7AA8ABAAQAAMAAAA8AA8ABAAQAAMAAAAfAAIABAASAAMAAAAfAAEABAARAAMAAAAfAAAABAARAAMAAAAfAP//BAARAAMAAAArABsABAASAAIAAAArACAABAASAAMAAAArABwABAARAAMAAAArAB0ABAARAAMAAAArAB4ABAARAAMAAAArAB8ABAARAAMAAAAKAA0ABAATAAQAAAAKAA4ABAATAAUAAAAKAA8ABAATAAYAAAAKABAABAATAAcAAAALAA0ABAAUAAQAAAALAA4ABAAUAAUAAAALAA8ABAAUAAYAAAALABAABAAUAAcAAAAMAA0ABAAVAAQAAAAMAA4ABAAVAAUAAAAMAA8ABAAVAAYAAAAMABAABAAVAAcAAAAYAAsABAATAAQAAAAYAAwABAATAAUAAAAYAA0ABAATAAYAAAAYAA4ABAATAAcAAAAZAAsABAAUAAQAAAAZAAwABAAUAAUAAAAZAA0ABAAUAAYAAAAZAA4ABAAUAAcAAAAaAAsABAAVAAQAAAAaAAwABAAVAAUAAAAaAA0ABAAVAAYAAAAaAA4ABAAVAAcAAAAmABQABAATAAQAAAAmABUABAATAAUAAAAmABYABAATAAYAAAAmABcABAATAAcAAAAnABQABAAUAAQAAAAnABUABAAUAAUAAAAnABYABAAUAAYAAAAnABcABAAUAAcAAAAoABQABAAVAAQAAAAoABUABAAVAAUAAAAoABYABAAVAAYAAAAoABcAAwADAAAAAAAwAAoABAATAAQAAAAwAAsABAATAAUAAAAwAAwABAATAAYAAAAwAA0ABAATAAcAAAAxAAoABAAUAAQAAAAxAAsABAAUAAUAAAAxAAwABAAUAAYAAAAxAA0ABAAUAAcAAAAyAAoABAAVAAQAAAAyAAsABAAVAAUAAAAyAAwABAAVAAYAAAAyAA0ABAAVAAcAAAASABUABAASAAAAAAATABUABAATAAAAAAAoAAUABAASAAAAAAApAAUABAATAAAAAAAvAB4ABAASAAAAAAAwAB4ABAATAAAAAAAtACAABAAQAAAAAAAwABYABAAQAAEAAAAiAAsABAAQAAEAAAAfAAMAAwACAAAAAAAfAAQAAwACAAEAAAAcABMAAwABAAAAAAAzABYAAwABAAAAAAAxAB4AAwAEAAAAAAAVAAcAAwAAAAAAAAAtAAgAAwAEAAAAAAAuAAgAAwAFAAAAAAAqAAkAAQADAAAAAAAsABQABAAUAAEAAAAMABYABAAUAAAAAAAaABcAAQABAAIAAAAkABMAAQABAAIAAAASAB0AAwAAAAEAAAA7ABQAAwAAAAEAAAALAAQAAwAAAAEAAAA3AAEAAwAAAAEAAAASAAQAAwABAAEAAAAKACAAAwABAAEAAAAvABkAAwABAAEAAAA1ACAAAwADAAEAAAAmAAEAAwADAAEAAAAQABAABAAQAAEAAAApABQAAwACAAEAAAAnAA8AAwAAAAAAAAA=")
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_right = 263.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "THE SECRET WAR"
+
+[node name="TitleLabelOutline" type="Label" parent="TitleLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_top = 1.0
+offset_right = 267.095
+offset_bottom = 81.0
+grow_horizontal = 2
+scale = Vector2(1.001, 1.001)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "THE SECRET WAR"
+
+[node name="SubTitleLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 70.0
+offset_right = 132.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "between cows and goats"
+
+[node name="SubTitleLabelOutline" type="Label" parent="SubTitleLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "between cows and goats"
+
+[node name="GoatOnPogo" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(240, 246)
+scale = Vector2(3.40625, 3.40625)
+texture = ExtResource("5_70146")
+
+[node name="Chocolate-milkCowWalkingSide1" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(743, 264)
+scale = Vector2(-2.26042, 2.26042)
+texture = ExtResource("6_hdhgp")

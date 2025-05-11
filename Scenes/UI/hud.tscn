@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5wog7x507abq"]
+[gd_scene load_steps=2 format=3 uid="uid://b5wog7x507abq"]
 
 [ext_resource type="Script" uid="uid://5u80v8ppeimo" path="res://Scripts/hud.gd" id="1_e0onf"]
-[ext_resource type="PackedScene" uid="uid://s3dxa1gt5e7d" path="res://Scenes/UI/powerups.tscn" id="2_ny26j"]
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_e0onf")
 
 [node name="Health" type="Label" parent="."]
@@ -21,4 +21,49 @@ offset_bottom = 51.0
 theme_override_font_sizes/font_size = 64
 text = "HP:"
 
-[node name="Powerups" parent="." instance=ExtResource("2_ny26j")]
+[node name="PowerBar" type="HBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -48.0
+offset_right = 172.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Passive1" type="ColorRect" parent="PowerBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Passive2" type="ColorRect" parent="PowerBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Passive3" type="ColorRect" parent="PowerBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Passive4" type="ColorRect" parent="PowerBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="RangedPower" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -48.0
+offset_right = -217.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0

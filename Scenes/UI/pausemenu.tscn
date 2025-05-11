@@ -38,3 +38,50 @@ theme_override_font_sizes/font_size = 80
 text = "GAME PAUSED"
 
 [node name="Powerups" parent="." instance=ExtResource("1_rp7hy")]
+visible = false
+
+[node name="Resume" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -61.5
+offset_right = 175.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "RESUME GAME"
+
+[node name="ToMainMenu" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = 8.5
+offset_right = 175.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 52
+text = "QUIT TO MAIN MENU"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 65.0
+offset_right = 150.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "(This will end the game!)"
+horizontal_alignment = 1
