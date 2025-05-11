@@ -49,7 +49,8 @@ func _ready():
 		duration = 10
 	elif type == 8:
 		$FoodTex.texture = load("res://Assets/Textures/Foods/Pumpkin.png")
-	
+		duration = 10
+		
 func eat():
 	$Hitbox.queue_free()
 	visible = false

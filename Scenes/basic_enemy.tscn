@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://yc6d0anpe5kp"]
+[gd_scene load_steps=73 format=3 uid="uid://yc6d0anpe5kp"]
 
 [ext_resource type="Script" uid="uid://dvi48do70xkkb" path="res://Scripts/basic_enemy.gd" id="1_fecjr"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="2_6kac6"]
@@ -18,9 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://cgmib702upmhn" path="res://Assets/Textures/Cows/Water/Side/cow walk3.png" id="11_sw57s"]
 [ext_resource type="Texture2D" uid="uid://bfqysmirxv26m" path="res://Assets/Textures/Cows/Water/Side/cow walk4.png" id="12_1sykg"]
 [ext_resource type="Texture2D" uid="uid://bo3cusaxqqfxk" path="res://Assets/Textures/Cows/Water/Back/watercow walk back1.png" id="13_g4tdn"]
+[ext_resource type="Texture2D" uid="uid://blothkihw5b6u" path="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide1.png" id="14_ks3y3"]
 [ext_resource type="Texture2D" uid="uid://duihuiwmsfsjj" path="res://Assets/Textures/Cows/Water/Back/watercow walk back2.png" id="14_lud6d"]
+[ext_resource type="Texture2D" uid="uid://bn5cd8lq3tf14" path="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide2.png" id="15_lr4m6"]
 [ext_resource type="Texture2D" uid="uid://cw83gn6lu77w0" path="res://Assets/Textures/Cows/Water/Back/watercow walk back3.png" id="15_nlxgo"]
 [ext_resource type="Texture2D" uid="uid://optbxu5uf5or" path="res://Assets/Textures/Cows/Water/Back/watercow walk back4.png" id="16_i02k7"]
+[ext_resource type="Texture2D" uid="uid://c3owrrpt2w6ny" path="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide3.png" id="16_vy3ag"]
+[ext_resource type="Texture2D" uid="uid://cvs6hyrxdkyhc" path="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide4.png" id="17_b3ocg"]
 [ext_resource type="Texture2D" uid="uid://jncf0r8nuloj" path="res://Assets/Textures/Cows/Fire/Back/firecow walk back1.png" id="18_sw57s"]
 [ext_resource type="Texture2D" uid="uid://bfcy0b55tspqm" path="res://Assets/Textures/Cows/Fire/Front/firecow walk front1.png" id="22_7exur"]
 [ext_resource type="Texture2D" uid="uid://c2erjjjeiw548" path="res://Assets/Textures/Cows/Fire/Front/firecow walk front2.png" id="23_s7glr"]
@@ -44,10 +48,6 @@
 [ext_resource type="Texture2D" uid="uid://c0xuclkmwkdf0" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front2.png" id="41_26pqn"]
 [ext_resource type="Texture2D" uid="uid://k8u21bokk3pc" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front3.png" id="42_ypl1d"]
 [ext_resource type="Texture2D" uid="uid://bb0q4rl5o84q1" path="res://Assets/Textures/Cows/Chocolate/Front/choco walk front4.png" id="43_vgt1t"]
-[ext_resource type="Texture2D" uid="uid://b0sgssnp3tyyi" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side1.png" id="44_28ell"]
-[ext_resource type="Texture2D" uid="uid://eer763r3sft3" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side2.png" id="45_30mw8"]
-[ext_resource type="Texture2D" uid="uid://kxfryblxafdm" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side3.png" id="46_bkrr2"]
-[ext_resource type="Texture2D" uid="uid://8m2tijtxta43" path="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side4.png" id="47_x7djk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4aor"]
 radius = 9.0
@@ -149,6 +149,9 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sqimp"]
+load_path = "res://.godot/imported/chocolate-milk cow walking side1.png-afb6e34691f3161371fccd5ad670bfb8.ctex"
+
 [sub_resource type="Animation" id="Animation_ks3y3"]
 resource_name = "ChocoIdle"
 length = 0.001
@@ -162,7 +165,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("44_28ell")]
+"values": [SubResource("CompressedTexture2D_sqimp")]
 }
 
 [sub_resource type="Animation" id="Animation_cvccg"]
@@ -179,7 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("44_28ell"), ExtResource("45_30mw8"), ExtResource("46_bkrr2"), ExtResource("47_x7djk")]
+"values": [ExtResource("14_ks3y3"), ExtResource("15_lr4m6"), ExtResource("16_vy3ag"), ExtResource("17_b3ocg")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -208,7 +211,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("44_28ell"), ExtResource("45_30mw8"), ExtResource("46_bkrr2"), ExtResource("47_x7djk")]
+"values": [ExtResource("14_ks3y3"), ExtResource("15_lr4m6"), ExtResource("16_vy3ag"), ExtResource("17_b3ocg")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
