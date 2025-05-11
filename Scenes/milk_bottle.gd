@@ -2,10 +2,9 @@ extends Node2D
 var target: Vector2
 var broken = false
 
-func _ready() -> void:
+func _enter_tree() -> void:
+	$Puddle.set_collision_layer_value(2,false)
 	$AnimationPlayer.play("Up")
-	await($AnimationPlayer.animation_finished)
-	$AnimationPlayer.play("spin")
 
 func _process(delta: float) -> void:
 	if not broken:
@@ -20,3 +19,8 @@ func _process(delta: float) -> void:
 		await($AnimationPlayer.animation_finished)
 		queue_free()
 		
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Up":
+		$AnimationPlayer.play("spin")
