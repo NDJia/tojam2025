@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c87s8p1a78vey"]
+[gd_scene load_steps=2 format=3 uid="uid://c87s8p1a78vey"]
+
+[ext_resource type="PackedScene" uid="uid://s3dxa1gt5e7d" path="res://Scenes/UI/powerups.tscn" id="1_rp7hy"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
 
 [node name="Border" type="ReferenceRect" parent="."]
 z_index = 1000
@@ -14,6 +17,7 @@ editor_only = false
 
 [node name="bg" type="ColorRect" parent="Border"]
 z_index = 1
+layout_mode = 0
 offset_left = -2.0
 offset_top = -2.0
 offset_right = 952.0
@@ -32,3 +36,5 @@ offset_bottom = 134.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 80
 text = "GAME PAUSED"
+
+[node name="Powerups" parent="." instance=ExtResource("1_rp7hy")]
