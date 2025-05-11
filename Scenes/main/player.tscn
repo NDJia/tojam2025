@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lijg8xjgo2gs"]
+[gd_scene load_steps=29 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
 [ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="2_me5wt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://yexe686ppnvv" path="res://Assets/Textures/Hitting/hitting10.png" id="14_av8dc"]
 [ext_resource type="Texture2D" uid="uid://hyw5ih05n5tb" path="res://Assets/Textures/Hitting/hitting11.png" id="15_q1qxs"]
 [ext_resource type="Texture2D" uid="uid://tnntqnl5hdl6" path="res://Assets/Textures/Hitting/hitting12.png" id="16_ypua6"]
+[ext_resource type="PackedScene" uid="uid://cfxkvmdsws722" path="res://Scenes/fire.tscn" id="17_lj8dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me5wt"]
 size = Vector2(31.4624, 4)
@@ -343,7 +344,7 @@ scale = Vector2(1.475, 1.475)
 flip_h = true
 
 [node name="AttackBox" type="Area2D" parent="Weapon"]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 monitoring = false
 
@@ -357,8 +358,8 @@ shape = SubResource("RectangleShape2D_ovolq")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, -21)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 
 [node name="Body" type="Sprite2D" parent="Hitbox"]
 y_sort_enabled = true
@@ -370,6 +371,11 @@ offset = Vector2(0, 2.58)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_jos6x")
+
+[node name="Fire" parent="Hitbox" instance=ExtResource("17_lj8dp")]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(0, 4)
+scale = Vector2(0.8, 0.8)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.505882)
@@ -390,10 +396,10 @@ fill_mode = 3
 show_percentage = false
 
 [node name="RyanHealthBar" type="ProgressBar" parent="."]
-offset_left = -14.0
-offset_top = -35.0
-offset_right = 12.0
-offset_bottom = -30.0
+offset_left = -28.0
+offset_top = -45.0
+offset_right = 28.0
+offset_bottom = -38.0
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -423,4 +429,18 @@ libraries = {
 }
 speed_scale = 0.8
 
+[node name="PoisonTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BurnTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="animation_finished" from="AttackAnimator" to="." method="AttackFinish"]
+[connection signal="timeout" from="PoisonTimer" to="." method="PoisonTimer"]
+[connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
+[connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
+[connection signal="timeout" from="BurnTimer" to="." method="PoisonTimer"]
+[connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]

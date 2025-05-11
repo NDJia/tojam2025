@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bhqpodpl5p01w"]
+[gd_scene load_steps=5 format=4 uid="uid://bhqpodpl5p01w"]
 
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_m378q"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_d7at8"]
 [ext_resource type="PackedScene" uid="uid://yc6d0anpe5kp" path="res://Scenes/basic_enemy.tscn" id="3_d7at8"]
+[ext_resource type="PackedScene" uid="uid://snpu5upsful7" path="res://Scenes/food.tscn" id="4_bjftj"]
 
 [node name="Island" type="Node2D"]
 y_sort_enabled = true
@@ -16,3 +17,6 @@ tile_map_data = PackedByteArray("AAD6////BAARAAIAAAD5////BAAQAAMAAAD///n/BAASAAM
 
 [node name="BasicEnemy" parent="." instance=ExtResource("3_d7at8")]
 position = Vector2(3, -25)
+
+[node name="Food" parent="." instance=ExtResource("4_bjftj")]
+position = Vector2(-57, -81)

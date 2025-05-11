@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpevbo6jby6w2"]
+
+[ext_resource type="Script" uid="uid://cl251gr33y2pd" path="res://Scripts/ground_slam.gd" id="1_2spko"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xwimr"]
+
+[sub_resource type="Gradient" id="Gradient_2spko"]
+colors = PackedColorArray(1, 0, 0.0166664, 0.639216, 1, 0, 0.0156863, 0.639216)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rctms"]
+gradient = SubResource("Gradient_2spko")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o6ak"]
+radius = 57.0
+
+[node name="GroundSlam" type="Node2D"]
+z_index = -2
+script = ExtResource("1_2spko")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(110.455, 110.455)
+mesh = SubResource("SphereMesh_xwimr")
+texture = SubResource("GradientTexture2D_rctms")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_2o6ak")
+
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Despawn" to="." method="Despawn"]

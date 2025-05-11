@@ -28,7 +28,14 @@ var immune = 0.3
 var health = 40
 ## Health of the enemy
 
+var on_fire = false
+## Indicates if enemy is on fire
+
+var type
+## Sets the type of cow
+
 func _ready() -> void:
+	$Body.flip_h = int(randi_range(0,1))
 	$ProgressBar.max_value = health
 	$ProgressBar.value = health
 	speed += randi_range(-10,10)
@@ -46,27 +53,24 @@ func _physics_process(delta: float) -> void:
 		immune = 0
 	
 	dir = dir.angle()
-	if dir <= -3*PI / 4:
-		$Body.texture = side
-		$Body.flip_h = true
+	if condition == "Idle":
+		$WalkAnim.play("WaterIdle")
+	elif dir <= -3*PI / 4:
+		$WalkAnim.play("WaterLeftWalk")
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 	elif dir <= -PI / 4:
-		$Body.texture = back
-		$Body.flip_h = false
+		$WalkAnim.play("WaterBackWalk")
 		$SmokeTexture.visible = false
 	elif dir <= PI / 4:
-		$Body.texture = side
-		$Body.flip_h = false
+		$WalkAnim.play("WaterRightWalk")
 		$SmokeTexture.position.x = 30
 		$SmokeTexture.visible = true
 	elif dir <= 3*PI / 4:
-		$Body.texture = front
-		$Body.flip_h = false
+		$WalkAnim.play("WaterFrontWalk")
 		$SmokeTexture.visible = false
 	else:
-		$Body.texture = side
-		$Body.flip_h = true
+		$WalkAnim.play("WaterLeftWalk")
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 
@@ -89,6 +93,9 @@ func hit(damage:int, reset_immune = true, ignore_immune = false):
 		if condition != "Dead":
 			$Body.modulate = Color("ffffff")
 
+func push(force:int,pos:Vector2):
+	global_position += (global_position - pos).normalized() * force
+
 func die():
 	# Starts the dying
 	condition = "Dead"
@@ -97,3 +104,21 @@ func die():
 	speed = 0
 	await(get_tree().create_timer(1,false).timeout)
 	queue_free()
+
+func burn(lenght = 5):
+	if not on_fire:
+		on_fire = true
+		$Fire/Anim.play("burn")
+		$FireTimer.start()
+		$BurnTimer.start(lenght)
+
+func FireTimer() -> void:
+	health -= 5
+	player.heal(5 * player.def_life)
+	$ProgressBar.value = health
+	$FireTimer.start()
+
+func Extinguish() -> void:
+	$FireTimer.stop()
+	$Fire/Anim.play("RESET")
+	on_fire = false

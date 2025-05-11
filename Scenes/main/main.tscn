@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://751j1s17snap"]
 
 [ext_resource type="PackedScene" uid="uid://m3w3wy2ctq27" path="res://Scenes/main/game.tscn" id="1_b20jg"]
-[ext_resource type="AudioStream" uid="uid://js2jxsan7iwo" path="res://Assets/Music/gamebgm.ogg" id="2_w1fgp"]
+[ext_resource type="AudioStream" uid="uid://baa7ytfpog1sx" path="res://Assets/Music/gamebgm_full.ogg" id="2_w1fgp"]
 
 [node name="Main" type="Node"]
 

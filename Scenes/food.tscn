@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://snpu5upsful7"]
+[gd_scene load_steps=5 format=3 uid="uid://snpu5upsful7"]
 
 [ext_resource type="Script" uid="uid://bogq6ilknpf45" path="res://food.gd" id="1_j4qko"]
+[ext_resource type="Texture2D" uid="uid://u0tmx2r7q8ki" path="res://Assets/Textures/Foods/Pretzel.png" id="2_fhto3"]
+[ext_resource type="AudioStream" uid="uid://nbuscli7xhfm" path="res://Assets/Sounds/Nom.mp3" id="3_h4kkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4kkx"]
+size = Vector2(16, 16.25)
 
 [node name="Food" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_j4qko")
+
+[node name="FoodTex" type="Sprite2D" parent="."]
+texture = ExtResource("2_fhto3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_h4kkx")
+
+[node name="Eating" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h4kkx")
+volume_db = -20.0
+bus = &"SFX"

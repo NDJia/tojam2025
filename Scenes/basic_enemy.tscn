@@ -1,10 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://yc6d0anpe5kp"]
+[gd_scene load_steps=32 format=3 uid="uid://yc6d0anpe5kp"]
 
 [ext_resource type="Script" uid="uid://dvi48do70xkkb" path="res://Scripts/basic_enemy.gd" id="1_fecjr"]
 [ext_resource type="Texture2D" uid="uid://2jyf4ktkxkkb" path="res://Temp/Shadow.png" id="2_6kac6"]
 [ext_resource type="Texture2D" uid="uid://do3yuqeaqcth7" path="res://Assets/Textures/Cows/Water/WaterCowSide.png" id="2_r4aor"]
+[ext_resource type="PackedScene" uid="uid://cfxkvmdsws722" path="res://Scenes/fire.tscn" id="2_tv6co"]
 [ext_resource type="Texture2D" uid="uid://bdylr3oc8r502" path="res://Assets/Textures/Cows/smoke.png" id="3_lal1l"]
 [ext_resource type="AudioStream" uid="uid://bnc32itvh4uia" path="res://Assets/Sounds/MOO.mp3" id="5_6kac6"]
+[ext_resource type="Texture2D" uid="uid://c4xgqr7bd0xpt" path="res://Assets/Textures/Cows/Water/Front/watercow walk front1.png" id="5_nk2ac"]
+[ext_resource type="Texture2D" uid="uid://186bhpqb7u2m" path="res://Assets/Textures/Cows/Water/Front/watercow walk front2.png" id="6_h7iov"]
+[ext_resource type="Texture2D" uid="uid://b4l0i7wj88ul6" path="res://Assets/Textures/Cows/Water/Front/watercow walk front3.png" id="7_n7d1f"]
+[ext_resource type="Texture2D" uid="uid://doeihqxlyesj6" path="res://Assets/Textures/Cows/Water/Front/watercow walk front4.png" id="8_62ls6"]
+[ext_resource type="Texture2D" uid="uid://dbe5lenud1t20" path="res://Assets/Textures/Cows/Water/Side/cow walk1.png" id="9_jlik3"]
+[ext_resource type="Texture2D" uid="uid://cbrq4abe43tn0" path="res://Assets/Textures/Cows/Water/Side/cow walk2.png" id="10_tv6co"]
+[ext_resource type="Texture2D" uid="uid://cgmib702upmhn" path="res://Assets/Textures/Cows/Water/Side/cow walk3.png" id="11_sw57s"]
+[ext_resource type="Texture2D" uid="uid://bfqysmirxv26m" path="res://Assets/Textures/Cows/Water/Side/cow walk4.png" id="12_1sykg"]
+[ext_resource type="Texture2D" uid="uid://bo3cusaxqqfxk" path="res://Assets/Textures/Cows/Water/Back/watercow walk back1.png" id="13_g4tdn"]
+[ext_resource type="Texture2D" uid="uid://duihuiwmsfsjj" path="res://Assets/Textures/Cows/Water/Back/watercow walk back2.png" id="14_lud6d"]
+[ext_resource type="Texture2D" uid="uid://cw83gn6lu77w0" path="res://Assets/Textures/Cows/Water/Back/watercow walk back3.png" id="15_nlxgo"]
+[ext_resource type="Texture2D" uid="uid://optbxu5uf5or" path="res://Assets/Textures/Cows/Water/Back/watercow walk back4.png" id="16_i02k7"]
+[ext_resource type="Texture2D" uid="uid://jncf0r8nuloj" path="res://Assets/Textures/Cows/Fire/Back/firecow walk back1.png" id="18_sw57s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4aor"]
 radius = 9.0
@@ -48,6 +62,205 @@ _data = {
 &"smoke": SubResource("Animation_r4aor")
 }
 
+[sub_resource type="Animation" id="Animation_f0pfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_r4aor")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sby1u"]
+resource_name = "WaterBackWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_g4tdn"), ExtResource("14_lud6d"), ExtResource("15_nlxgo"), ExtResource("16_i02k7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gw7x3"]
+resource_name = "WaterFrontWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_nk2ac"), ExtResource("6_h7iov"), ExtResource("7_n7d1f"), ExtResource("8_62ls6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sw57s"]
+resource_name = "WaterIdle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_r4aor")]
+}
+
+[sub_resource type="Animation" id="Animation_aorl8"]
+resource_name = "WaterLeftWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_jlik3"), ExtResource("10_tv6co"), ExtResource("11_sw57s"), ExtResource("12_1sykg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t0fgp"]
+resource_name = "WaterRightWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_jlik3"), ExtResource("10_tv6co"), ExtResource("11_sw57s"), ExtResource("12_1sykg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tv6co"]
+resource_name = "FireBackWalk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_sw57s"), ExtResource("14_lud6d"), ExtResource("15_nlxgo"), ExtResource("16_i02k7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlwu0"]
+_data = {
+&"FireBackWalk": SubResource("Animation_tv6co"),
+&"RESET": SubResource("Animation_f0pfe"),
+&"WaterBackWalk": SubResource("Animation_sby1u"),
+&"WaterFrontWalk": SubResource("Animation_gw7x3"),
+&"WaterIdle": SubResource("Animation_sw57s"),
+&"WaterLeftWalk": SubResource("Animation_aorl8"),
+&"WaterRightWalk": SubResource("Animation_t0fgp")
+}
+
 [node name="BasicEnemy" type="Node2D"]
 script = ExtResource("1_fecjr")
 
@@ -62,6 +275,9 @@ texture = ExtResource("2_6kac6")
 texture_filter = 1
 position = Vector2(0, -16)
 texture = ExtResource("2_r4aor")
+
+[node name="Fire" parent="." instance=ExtResource("2_tv6co")]
+position = Vector2(0, -16)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 6
@@ -96,6 +312,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_6cefa")
 }
 
+[node name="WalkAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jlwu0")
+}
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -27.0
 offset_top = -48.0
@@ -105,8 +326,14 @@ show_percentage = false
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_6kac6")
-volume_db = -10.0
-pitch_scale = 0.72
+volume_db = -30.0
+pitch_scale = 1.2
 bus = &"SFX"
 
+[node name="FireTimer" type="Timer" parent="."]
+
+[node name="BurnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="UpdateTarget" to="." method="Update_Target"]
+[connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
+[connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
