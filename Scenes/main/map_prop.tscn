@@ -134,6 +134,15 @@ texture = ExtResource("1_71v52")
 6:12/0/z_index = -2
 7:12/0 = 0
 7:12/0/z_index = -2
+3:4/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+0:4/0 = 0
+10:4/0 = 0
+9:4/0 = 0
+10:5/0 = 0
+10:6/0 = 0
+10:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxptm"]
 texture = ExtResource("2_to0ch")
@@ -903,5 +912,6 @@ sources/3 = SubResource("TileSetAtlasSource_to0ch")
 [node name="MapProp" type="TileMapLayer"]
 y_sort_enabled = true
 texture_filter = 1
+tile_map_data = PackedByteArray(0, 0, 87, 255, 212, 255, 0, 0, 1, 0, 12, 0, 0, 0)
 tile_set = SubResource("TileSet_q4m2g")
 metadata/_edit_lock_ = true

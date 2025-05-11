@@ -31,7 +31,7 @@ var health = 40
 var on_fire = false
 ## Indicates if enemy is on fire
 
-var type
+@export var type = "Water"
 ## Sets the type of cow
 
 func _ready() -> void:
@@ -54,23 +54,23 @@ func _physics_process(delta: float) -> void:
 	
 	dir = dir.angle()
 	if condition == "Idle":
-		$WalkAnim.play("WaterIdle")
+		$WalkAnim.play(str(type)+"Idle")
 	elif dir <= -3*PI / 4:
-		$WalkAnim.play("WaterLeftWalk")
+		$WalkAnim.play(str(type)+"LeftWalk")
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 	elif dir <= -PI / 4:
-		$WalkAnim.play("WaterBackWalk")
+		$WalkAnim.play(str(type)+"BackWalk")
 		$SmokeTexture.visible = false
 	elif dir <= PI / 4:
-		$WalkAnim.play("WaterRightWalk")
+		$WalkAnim.play(str(type)+"RightWalk")
 		$SmokeTexture.position.x = 30
 		$SmokeTexture.visible = true
 	elif dir <= 3*PI / 4:
-		$WalkAnim.play("WaterFrontWalk")
+		$WalkAnim.play(str(type)+"FrontWalk")
 		$SmokeTexture.visible = false
 	else:
-		$WalkAnim.play("WaterLeftWalk")
+		$WalkAnim.play(str(type)+"LeftWalk")
 		$SmokeTexture.position.x = -30
 		$SmokeTexture.visible = true
 
