@@ -136,10 +136,14 @@ func _physics_process(delta: float) -> void:
 				if area.name.contains("Sneeze"):
 					velocity += position.direction_to(enemy.position) * -60
 					burn(10)
+					immune = 0.3
+				elif area.name.contains("Puddle"):
+					heal(-5)
+					immune = 0.6
 				else:
 					velocity += position.direction_to(enemy.position) * -enemy.knockback
 					health -= enemy.damage
-				immune = 0.3
+					immune = 0.3
 				if state != "Dead":
 					hit()
 		elif area.get_collision_layer_value(4):
