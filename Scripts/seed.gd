@@ -1,12 +1,15 @@
 extends Node2D
 
-var speed = 100
+var speed = 200
 ## The speed of the seed
 
-var lifetime = 10
+var lifetime = 5
 ## Lifetime of the seed
 
 func _physics_process(delta: float) -> void:
+	lifetime -= delta
+	if lifetime <= 0:
+		queue_free()
 	position += Vector2(cos(rotation),sin(rotation)) * delta * speed
 
 func Hit(area: Area2D) -> void:

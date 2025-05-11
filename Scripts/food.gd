@@ -43,8 +43,10 @@ func _ready():
 		duration = 50
 	elif type == 6:
 		$FoodTex.texture = load("res://Assets/Textures/Foods/Watermelon.png")
+		duration = 30
 	elif type == 7:
 		$FoodTex.texture = load("res://Assets/Textures/Foods/Apple.png")
+		duration = 10
 	elif type == 8:
 		$FoodTex.texture = load("res://Assets/Textures/Foods/Pumpkin.png")
 	

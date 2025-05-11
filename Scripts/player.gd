@@ -3,6 +3,7 @@ var front = preload("res://Assets/Textures/goat_on_pogo.png")
 var back = preload("res://Assets/Textures/goat_on_pogo.png")
 var side = preload("res://Assets/Textures/goat_on_pogo.png")
 var slam = preload("res://Scenes/ground_slam.tscn")
+var seed = preload("res://Scenes/seed.tscn")
 
 
 
@@ -38,6 +39,8 @@ var state = "Alive"
 
 var active_items = {1:[],2:[],3:[],4:[]}
 ## A List Of Currently Active Items
+
+var main_item = []
 
 @export_category("Movement Settings")
 
@@ -77,6 +80,9 @@ var cooldown = def_dash_cooldown
 var def_life = 0.1
 ## Default Amount of life per damage
 
+var shoot_cooldown = 1
+## Cooldown time between shots
+
 func _ready():
 	$RyanProgressBar.max_value = def_dash_cooldown
 	$AnimationPlayer.play("Idle")
@@ -85,10 +91,14 @@ func _physics_process(delta: float) -> void:
 	# Makes The Cooldown Go Down
 	cooldown -= delta
 	immune -= delta
+	shoot_cooldown -= delta
 	if cooldown < 0:
 		cooldown = 0
 	if immune < 0:
 		immune = 0
+	if shoot_cooldown < 0:
+		shoot_cooldown = 0
+		
 	for item in active_items.values():
 		if item != []:
 			item[1] -= delta
@@ -114,6 +124,9 @@ func _physics_process(delta: float) -> void:
 	# If no buttons are held the plater slows down
 	if Input.get_axis("Left","Right") == 0 and Input.get_axis("Up","Down") == 0 and grounded:
 		velocity -= velocity/10
+	
+	if Input.is_action_pressed("Shoot"):
+		shoot()
 	
 	# Rounds the movement of the player if it is very small
 	if abs(velocity.x) < 1:
@@ -220,21 +233,33 @@ const descriptions = [
 	# 3
 	"Landing after a Super Jump deals damage to nearby enemies, but you are slow after landing.",
 	# 4
-	"You are much faster, but you have been poisoned by chocolate!"
+	"You are much faster, but you have been poisoned by chocolate!",
+	#5
+	"",
+	#6
+	"",
+	#7
+	""
 ]
 
 func eat(type:int,duration:float) -> bool:
-	var slot = -1
-	for x in range(1,5):
-		if active_items.get(x) == []:
-			slot = x
-			break
-	if slot == -1:
-		return false
-	active_items[slot] = [type,duration,descriptions[type-1]]
-	if type == 3:
-		heal(20)
-	process_buffs()
+	if type < 6:
+		var slot = -1
+		for x in range(1,5):
+			if active_items.get(x) == []:
+				slot = x
+				break
+		if slot == -1:
+			return false
+		active_items[slot] = [type,duration,descriptions[type-1]]
+		if type == 3:
+			heal(20)
+		process_buffs()
+	elif type > 5:
+		if main_item != []:
+			return false
+		else:
+			main_item = [type,duration]
 	return true
 
 func AttackFinish(anim_name: StringName) -> void:
@@ -272,6 +297,29 @@ func process_buffs():
 		elif item.get(0) == 5:
 			speed_buff += 30
 			$PoisonTimer.start()
+		
+func shoot():
+	if shoot_cooldown == 0 and main_item != []:
+		if main_item[0] == 6:
+			var new_seed = seed.instantiate()
+			new_seed.global_position = position
+			new_seed.look_at(get_global_mouse_position())
+			get_parent().add_child(new_seed)
+			shoot_cooldown = 0.1
+			main_item[1] -= 1
+		if main_item[0] == 7:
+			for n in range(-2,3):
+				var new_seed = seed.instantiate()
+				new_seed.lifetime = 1
+				new_seed.global_position = position
+				new_seed.look_at(get_global_mouse_position())
+				new_seed.rotation += ((PI/12) * n)
+				get_parent().add_child(new_seed)
+			shoot_cooldown = 1
+			main_item[1] -= 1
+		if main_item[1] <= 0:
+			main_item = []
+			
 		
 func PoisonTimer() -> void:
 	heal(-1)
