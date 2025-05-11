@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://dedxmg1v3fcw3"]
+[gd_scene load_steps=5 format=4 uid="uid://dedxmg1v3fcw3"]
 
 [ext_resource type="PackedScene" uid="uid://dx3nmw304muta" path="res://Scenes/main/map_floor.tscn" id="1_me4o0"]
 [ext_resource type="PackedScene" uid="uid://behop5phl7ltg" path="res://Scenes/main/map_prop.tscn" id="2_sp14f"]
 [ext_resource type="PackedScene" uid="uid://yc6d0anpe5kp" path="res://Scenes/basic_enemy.tscn" id="3_kqqno"]
+[ext_resource type="PackedScene" uid="uid://c68wrypsx8c7q" path="res://Scenes/barrier.tscn" id="4_gmkx2"]
 
 [node name="Island" type="Node2D"]
 y_sort_enabled = true
@@ -21,3 +22,6 @@ type = "Choco"
 [node name="BasicEnemy2" parent="." instance=ExtResource("3_kqqno")]
 position = Vector2(-25, -33)
 type = "Choco"
+
+[node name="Barrier" parent="." instance=ExtResource("4_gmkx2")]
+position = Vector2(182, -18)

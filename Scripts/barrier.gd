@@ -7,5 +7,7 @@ func Check() -> void:
 			done = false
 			break
 	if done:
-		queue_free()
+		$AnimationPlayer.play("Open")
+		$StaticBody2D.queue_free()
+		$CheckMob.stop()
 			

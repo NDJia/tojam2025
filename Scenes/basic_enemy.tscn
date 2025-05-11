@@ -150,7 +150,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sqimp"]
-load_path = "res://.godot/imported/chocolate-milk cow walking side1.png-afb6e34691f3161371fccd5ad670bfb8.ctex"
 
 [sub_resource type="Animation" id="Animation_ks3y3"]
 resource_name = "ChocoIdle"

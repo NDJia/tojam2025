@@ -29,4 +29,4 @@ position = Vector2(-35, 22)
 position = Vector2(54, -87)
 
 [node name="Barrier" parent="." instance=ExtResource("5_0gnf8")]
-position = Vector2(174, -12)
+position = Vector2(183, -19)
