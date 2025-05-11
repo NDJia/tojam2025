@@ -41,6 +41,7 @@ var active_items = {1:[],2:[],3:[],4:[]}
 ## A List Of Currently Active Items
 
 var main_item = []
+## range item
 
 @export_category("Movement Settings")
 

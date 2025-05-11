@@ -41,18 +41,56 @@ alignment = 1
 [node name="Passive1" type="ColorRect" parent="PowerBar"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+tooltip_text = "awfegfertgeatw"
+color = Color(1, 1, 1, 0)
+
+[node name="texture" type="TextureRect" parent="PowerBar/Passive1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer" type="Label" parent="PowerBar/Passive1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 13.0
 
 [node name="Passive2" type="ColorRect" parent="PowerBar"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="texture" type="TextureRect" parent="PowerBar/Passive2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer" type="Label" parent="PowerBar/Passive2"]
+offset_right = 40.0
+offset_bottom = 13.0
 
 [node name="Passive3" type="ColorRect" parent="PowerBar"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="texture" type="TextureRect" parent="PowerBar/Passive3"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer" type="Label" parent="PowerBar/Passive3"]
+offset_right = 40.0
+offset_bottom = 13.0
 
 [node name="Passive4" type="ColorRect" parent="PowerBar"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="PowerBar/Passive4"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer" type="Label" parent="PowerBar/Passive4"]
+offset_right = 40.0
+offset_bottom = 13.0
 
 [node name="RangedPower" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
@@ -67,3 +105,11 @@ offset_right = -217.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="texture" type="TextureRect" parent="RangedPower"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="timer" type="Label" parent="RangedPower"]
+offset_right = 40.0
+offset_bottom = 13.0
