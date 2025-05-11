@@ -179,6 +179,8 @@ func sneeze():
 	await(get_tree().create_timer(0.8,false).timeout)
 	new_sneeze.get_child(1).play("Sneeze")
 	get_parent().get_parent().add_child(new_sneeze)
+	if condition == "Dead":
+		new_sneeze.queue_free()
 	await(get_tree().create_timer(0.9,false).timeout)
 	new_sneeze.queue_free()
 	sneezing = false

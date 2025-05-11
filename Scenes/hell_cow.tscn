@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c6qrbpsay7h7t"]
+[gd_scene load_steps=25 format=3 uid="uid://c6qrbpsay7h7t"]
 
 [ext_resource type="Script" uid="uid://cdxhcosgnl2e2" path="res://Scripts/hell_cow.gd" id="1_lbpjh"]
 [ext_resource type="Texture2D" uid="uid://dy48wy38tpxkx" path="res://Assets/Textures/Cows/HellCow/hellcow front/hell cow front1.png" id="1_odo56"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b73hp8ov7ofpn" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side2.png" id="10_d38f5"]
 [ext_resource type="Texture2D" uid="uid://cr02ws385swv3" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side3.png" id="11_r0urw"]
 [ext_resource type="Texture2D" uid="uid://b83ij1r1o64ox" path="res://Assets/Textures/Cows/HellCow/hellcow side/hell cow side4.png" id="12_by6oh"]
+[ext_resource type="AudioStream" uid="uid://bkylmmdu1osql" path="res://Assets/Sounds/Record (online-voice-recorder.com).mp3" id="15_la652"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wnfc4"]
 radius = 32.3883
@@ -228,9 +229,11 @@ autostart = true
 
 [node name="Nav" type="NavigationAgent2D" parent="."]
 target_desired_distance = 25.0
-debug_enabled = true
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_la652")
+volume_db = -30.0
+pitch_scale = 0.5
 
 [node name="SummonTimer" type="Timer" parent="."]
 wait_time = 2.0

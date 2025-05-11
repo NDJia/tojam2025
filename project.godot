@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TOJam2025"
-run/main_scene="uid://751j1s17snap"
+run/main_scene="uid://dokdw0t3rd6sy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Textures/icon.svg"
 
