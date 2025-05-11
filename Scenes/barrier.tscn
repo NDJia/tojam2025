@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c68wrypsx8c7q"]
+
+[ext_resource type="Script" uid="uid://bynlxdf54c5wn" path="res://Scripts/barrier.gd" id="1_725b1"]
+
+[sub_resource type="Gradient" id="Gradient_uvob8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wexun"]
+gradient = SubResource("Gradient_uvob8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1olmg"]
+size = Vector2(20, 116)
+
+[node name="Barrier" type="Node2D"]
+script = ExtResource("1_725b1")
+
+[node name="BarrierTex" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.90735e-06)
+scale = Vector2(0.28125, 1.78125)
+texture = SubResource("GradientTexture2D_wexun")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_1olmg")
+
+[node name="CheckMob" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="CheckMob" to="." method="Check"]

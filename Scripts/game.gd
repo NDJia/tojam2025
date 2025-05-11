@@ -1,15 +1,37 @@
 extends Node2D
 
-@export var map_size = 2
-## How many map tiles should generate (2 is half of the map)
-
-@export var tile_size = 24
+var tile_size = 24
 ## How many tiles do each tile consists of (24x24)
 
-@export var var_num = 5
-## Amount of island variation in the game
+var water_var = 3
+## Amount of Water tiles
+
+var water_size = 3
+## Amount of Water tile to generate
+
+var fire_var = 2
+## Amount of Water tiles
+
+var fire_size = 3
+## Amount of Water tile to generate
 
 func _ready() -> void:
+	var new_island = load("res://Scenes/Islands/IslandCenter.tscn").instantiate()
+	new_island.position = Vector2(0,0)
+	add_child(new_island)
+	
+	for x in range(1,water_size + 1):
+		var new_water = load("res://Scenes/Islands/WaterIsland"+ str(randi_range(1,water_var)) +".tscn").instantiate()
+		new_water.position = Vector2(x*tile_size*16,0)
+		add_child(new_water)
+	
+	for x in range(1,fire_size + 1):
+		var new_fire = load("res://Scenes/Islands/FireIsland"+ str(randi_range(1,fire_var)) +".tscn").instantiate()
+		new_fire.position = Vector2(water_size*tile_size*16 + x*tile_size*16,0)
+		add_child(new_fire)
+	
+	
+	'''
 	for y in range(-map_size,map_size+1):
 		for x in range(-map_size,map_size+1):
 			if x == 0 and y == 0:
@@ -20,3 +42,4 @@ func _ready() -> void:
 				var new_island = load("res://Scenes/Islands/Island"+ str(randi_range(1,var_num)) +".tscn").instantiate()
 				new_island.position = Vector2(x * (tile_size*16), y * (tile_size*16))
 				add_child(new_island)
+	'''
