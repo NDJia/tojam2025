@@ -6,6 +6,7 @@ func _ready():
 	$Start.pressed.connect(start_game)
 	$Credits.pressed.connect(show_credits)
 	
+	$CreditsInfo/ColorRect.size = creditsinfo_button.get_parent_area_size()
 	creditsinfo_button.size = creditsinfo_button.get_parent_area_size()
 	creditsinfo_button.pressed.connect(hide_credits)
 	
