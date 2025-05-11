@@ -211,8 +211,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Pause the game if the escape key is pressed
 	if Input.is_action_just_pressed("Pause"):
-		$PauseMenu.show()
-		get_tree().paused = true
+		#$PauseMenu.show()
+		#get_tree().paused = true
+		get_tree().change_scene_to_file("res://Scenes/UI/mainmenu.tscn")
 
 func hit():
 	$Hitbox/Body.modulate = Color("ff0000")
