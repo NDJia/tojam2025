@@ -83,6 +83,7 @@ theme_override_font_sizes/font_size = 80
 text = "START GAME"
 
 [node name="CreditsInfo" type="RichTextLabel" parent="."]
+visible = false
 z_index = 6
 anchors_preset = 8
 anchor_left = 0.5

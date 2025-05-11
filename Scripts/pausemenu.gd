@@ -5,8 +5,8 @@ func _ready():
 	$ToMainMenu.pressed.connect(to_menu)
 	
 func resume():
-	hide()
 	get_tree().paused = false
+	hide()
 
 func to_menu():
 	get_tree().change_scene_to_file("res://Scenes/UI/mainmenu.tscn")
