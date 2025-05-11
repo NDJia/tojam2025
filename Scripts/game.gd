@@ -40,3 +40,7 @@ func _ready() -> void:
 		var new_choco = load("res://Scenes/Islands/Choco/Choco"+ str(randi_range(1,choco_var)) +".tscn").instantiate()
 		new_choco.position = Vector2(water_size*tile_size*16 + fire_size*tile_size*16 + x*tile_size*16,0)
 		add_child(new_choco)
+		
+	var hell_island = load("res://Scenes/Islands/ToHell.tscn").instantiate()
+	hell_island.position = Vector2(water_size*tile_size*16 + fire_size*tile_size*16 + choco_size*tile_size*16 + 24*16,0)
+	add_child(hell_island)
