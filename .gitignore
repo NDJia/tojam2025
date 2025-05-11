@@ -3,3 +3,4 @@
 
 # raw project files
 **/*.xcf
+export_presets.cfg
