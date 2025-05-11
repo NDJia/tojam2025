@@ -7,6 +7,12 @@
 process_mode = 2
 script = ExtResource("1_ng1wx")
 
+[node name="bg" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 954.0
+offset_bottom = 538.0
+color = Color(0.111197, 0.111197, 0.111197, 0.756863)
+
 [node name="Border" type="ReferenceRect" parent="."]
 z_index = 1000
 offset_left = 2.0
@@ -17,14 +23,37 @@ border_color = Color(0.731977, 0.46271, 0.241689, 1)
 border_width = 10.0
 editor_only = false
 
-[node name="bg" type="ColorRect" parent="Border"]
-z_index = 1
-layout_mode = 0
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 952.0
-offset_bottom = 536.0
-color = Color(0.207843, 0.207843, 0.207843, 0.2)
+[node name="Resume" type="Button" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -61.5
+offset_right = 175.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "RESUME GAME"
+
+[node name="ToMainMenu" type="Button" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = 8.5
+offset_right = 175.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 52
+text = "QUIT TO MAIN MENU"
 
 [node name="PauseLabel" type="Label" parent="."]
 z_index = 10
@@ -42,37 +71,8 @@ text = "GAME PAUSED"
 [node name="Powerups" parent="." instance=ExtResource("1_rp7hy")]
 visible = false
 
-[node name="Resume" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.5
-offset_top = -61.5
-offset_right = 175.5
-offset_bottom = -2.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "RESUME GAME"
-
-[node name="ToMainMenu" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.5
-offset_top = 8.5
-offset_right = 175.5
-offset_bottom = 67.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 52
-text = "QUIT TO MAIN MENU"
-
 [node name="Label" type="Label" parent="."]
+z_index = 5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

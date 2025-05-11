@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lijg8xjgo2gs"]
+[gd_scene load_steps=30 format=3 uid="uid://lijg8xjgo2gs"]
 
 [ext_resource type="Script" uid="uid://dwu2oih2iddty" path="res://Scripts/player.gd" id="1_c5wjw"]
 [ext_resource type="Texture2D" uid="uid://bse30n5ndaeh3" path="res://Assets/Textures/goat_on_pogo.png" id="2_me5wt"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://hyw5ih05n5tb" path="res://Assets/Textures/Hitting/hitting11.png" id="15_q1qxs"]
 [ext_resource type="Texture2D" uid="uid://tnntqnl5hdl6" path="res://Assets/Textures/Hitting/hitting12.png" id="16_ypua6"]
 [ext_resource type="PackedScene" uid="uid://cfxkvmdsws722" path="res://Scenes/fire.tscn" id="17_lj8dp"]
+[ext_resource type="PackedScene" uid="uid://c87s8p1a78vey" path="res://Scenes/UI/pausemenu.tscn" id="18_psa5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me5wt"]
 size = Vector2(31.4624, 4)
@@ -439,9 +440,12 @@ wait_time = 2.0
 [node name="BurnTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="PauseMenu" parent="." instance=ExtResource("18_psa5u")]
+visible = false
+
 [connection signal="animation_finished" from="AttackAnimator" to="." method="AttackFinish"]
 [connection signal="timeout" from="PoisonTimer" to="." method="PoisonTimer"]
-[connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="FireTimer" to="." method="FireTimer"]
+[connection signal="timeout" from="FireTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="BurnTimer" to="." method="PoisonTimer"]
 [connection signal="timeout" from="BurnTimer" to="." method="Extinguish"]
