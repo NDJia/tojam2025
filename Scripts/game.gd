@@ -21,8 +21,6 @@ var choco_var = 5
 var choco_size = 5
 ## Amount of Water tile to generate
 
-var seed = preload("res://Scenes/seed.tscn")
-
 func _ready() -> void:
 	var new_island = load("res://Scenes/Islands/IslandCenter.tscn").instantiate()
 	new_island.position = Vector2(0,0)
@@ -42,13 +40,3 @@ func _ready() -> void:
 		var new_choco = load("res://Scenes/Islands/Choco/Choco"+ str(randi_range(1,choco_var)) +".tscn").instantiate()
 		new_choco.position = Vector2(water_size*tile_size*16 + fire_size*tile_size*16 + x*tile_size*16,0)
 		add_child(new_choco)
-
-
-##TEMPORARY
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("Shoot"):
-		var new_seed = seed.instantiate()
-		new_seed.position = $Player.position
-		new_seed.look_at(get_global_mouse_position())
-		add_child(new_seed)
-		

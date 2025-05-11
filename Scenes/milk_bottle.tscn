@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cw7ix7kpracap"]
 
-[ext_resource type="Script" uid="uid://ixkdog6h5a62" path="res://Scenes/milk_bottle.gd" id="1_lfox8"]
+[ext_resource type="Script" uid="uid://ixkdog6h5a62" path="res://Scripts/milk_bottle.gd" id="1_lfox8"]
 [ext_resource type="Texture2D" uid="uid://kg8h0koot8pb" path="res://Assets/Textures/Cows/Chocolate/Choco/chocolate milk splash7.png" id="1_yr1wi"]
 [ext_resource type="Texture2D" uid="uid://62e1vs6y0pmn" path="res://Assets/Textures/Cows/Chocolate/Choco/chocolate milk splash1.png" id="2_s14v4"]
 [ext_resource type="Texture2D" uid="uid://bow744qo6ncxq" path="res://Assets/Textures/Cows/Chocolate/Choco/chocolate milk splash2.png" id="3_lfox8"]
