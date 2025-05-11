@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kxfryblxafdm"
-path="res://.godot/imported/chocolate-milk cow walking side3.png-7dae3a3cb70e54c5d0b9b88bf15a695c.ctex"
+uid="uid://c3owrrpt2w6ny"
+path="res://.godot/imported/ChocoSide3.png-660b8d2c4eaf04e04f445b825d1a4b02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Cows/Chocolate/Side/chocolate-milk cow walking side3.png"
-dest_files=["res://.godot/imported/chocolate-milk cow walking side3.png-7dae3a3cb70e54c5d0b9b88bf15a695c.ctex"]
+source_file="res://Assets/Textures/Cows/Chocolate/Side/ChocoSide3.png"
+dest_files=["res://.godot/imported/ChocoSide3.png-660b8d2c4eaf04e04f445b825d1a4b02.ctex"]
 
 [params]
 

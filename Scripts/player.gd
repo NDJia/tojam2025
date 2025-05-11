@@ -5,10 +5,11 @@ var side = preload("res://Assets/Textures/goat_on_pogo.png")
 var slam = preload("res://Scenes/ground_slam.tscn")
 var seed = preload("res://Scenes/seed.tscn")
 
-
-
 var health = 100.0
 ## The Health Variable Of The Player
+
+var regen = 0
+## How much regen per second
 
 var keep_burning = false
 ## indicates if player will keep burning
@@ -89,6 +90,9 @@ func _ready():
 	$AnimationPlayer.play("Idle")
 
 func _physics_process(delta: float) -> void:
+	# Regen
+	heal(regen * delta)
+	
 	# Makes The Cooldown Go Down
 	cooldown -= delta
 	immune -= delta
@@ -99,6 +103,14 @@ func _physics_process(delta: float) -> void:
 		immune = 0
 	if shoot_cooldown < 0:
 		shoot_cooldown = 0
+		
+	print(main_item)
+	if main_item != []:
+		if main_item[0] == 8:
+			main_item[1] -= delta
+			if main_item[1] <= 0:
+				main_item = []
+				process_buffs()
 		
 	for item in active_items.values():
 		if item != []:
@@ -261,6 +273,7 @@ func eat(type:int,duration:float) -> bool:
 			return false
 		else:
 			main_item = [type,duration]
+			process_buffs()
 	return true
 
 func AttackFinish(anim_name: StringName) -> void:
@@ -281,8 +294,15 @@ func process_buffs():
 	deadly_jump = false
 	speed_buff = 0
 	keep_burning = false
+	def_life = 0.1
+	regen = 0
 	$PoisonTimer.stop()
 	# Resets the buffs
+	if main_item != []:
+		if main_item[0] == 8:
+			regen += 2
+			def_life += 0.2
+		
 	for item in active_items.values():
 		if item.get(0) == 1:
 			dash_cd_buff /= 2
@@ -305,6 +325,8 @@ func shoot():
 			var new_seed = seed.instantiate()
 			new_seed.global_position = position
 			new_seed.look_at(get_global_mouse_position())
+			new_seed.damage = 2
+			new_seed.on_fire = on_fire
 			get_parent().add_child(new_seed)
 			shoot_cooldown = 0.1
 			main_item[1] -= 1
@@ -313,15 +335,16 @@ func shoot():
 				var new_seed = seed.instantiate()
 				new_seed.lifetime = 1
 				new_seed.global_position = position
+				new_seed.damage = 3
 				new_seed.look_at(get_global_mouse_position())
 				new_seed.rotation += ((PI/12) * n)
+				new_seed.on_fire = on_fire
 				get_parent().add_child(new_seed)
 			shoot_cooldown = 1
 			main_item[1] -= 1
 		if main_item[1] <= 0:
 			main_item = []
 			
-		
 func PoisonTimer() -> void:
 	heal(-1)
 	$PoisonTimer.start()
