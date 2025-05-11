@@ -53,7 +53,7 @@ var speed_buff = 0
 @export var def_acc = 20
 ## How Fast The Player Can Accelarate
 
-@export var def_dash_power = 70
+@export var def_dash_power = 50
 ## The Power of The Dash
 
 @export var def_dash_cooldown = 5.0
